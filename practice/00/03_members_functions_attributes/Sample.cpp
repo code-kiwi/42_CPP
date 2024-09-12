@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stdio_streams.cpp                                  :+:      :+:    :+:   */
+/*   Sample.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/12 13:58:21 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/12 14:07:00 by mhotting         ###   ########.fr       */
+/*   Created: 2024/09/12 14:21:23 by mhotting          #+#    #+#             */
+/*   Updated: 2024/09/12 17:40:56 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-int main(void) {
-    char    buff[512];
+#include "Sample.hpp"
 
-    std::cout << "Hello World !" << std::endl;
+Sample::Sample(void) {
+    std::cout << "Sample Constructor called" << std::endl;
 
-    std::cout << "Input a word: ";
-    std::cin >> buff;
-    std::cout << "You entered: [" << buff << "]" << std::endl;
-    return (0);
+    this->foo_private = 42;
+    this->foo = 41;
+
+    this->bar();
+    
+    return ;
 }
 
-/**
- * NOTES:
- * - using `cin` and `cout` will help us to easily pick program input and output
- */
+Sample::~Sample(void) {
+    std::cout << "Sample Destructor called..." << std::endl;
+    return ;
+}
+
+void    Sample::bar(void) {
+    std::cout << "Member function bar called" << std::endl;
+    return ;
+}
