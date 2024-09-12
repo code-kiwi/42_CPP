@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 13:40:01 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/12 13:55:15 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/12 14:07:13 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int	main(void) {
 	printf("::gl_var:\t[%d]\n", ::gl_var);
 	printf("::f():\t\t[%d]\n", ::f());
 	printf("\n");
+
+	return (0);
 }
 
 /**
