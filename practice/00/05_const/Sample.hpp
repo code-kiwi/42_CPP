@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Sample.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/12 14:16:33 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/12 19:45:54 by mhotting         ###   ########.fr       */
+/*   Created: 2024/09/12 19:42:54 by mhotting          #+#    #+#             */
+/*   Updated: 2024/09/12 20:00:30 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Sample.hpp"
+#ifndef SAMPLE_HPP
+# define SAMPLE_HPP
 
-int main(void) {
-	Sample  instance;
+class	Sample {
+	public:
+		float const pi;
+		int			qd;
 
-	return (0);
-}
+		Sample(float const f);
+		~Sample(void);
 
-/**
- * NOTES:
- * - constructors and destructors (in CPP) have no return type
- */
+		void	bar(void) const; // !!! IMPORTANT !!! his syntax means that this method does not affect the attributes of the current instance
+};
+
+#endif

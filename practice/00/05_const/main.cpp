@@ -5,20 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/12 14:16:33 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/12 19:45:54 by mhotting         ###   ########.fr       */
+/*   Created: 2024/09/12 19:45:36 by mhotting          #+#    #+#             */
+/*   Updated: 2024/09/12 20:00:57 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sample.hpp"
 
-int main(void) {
-	Sample  instance;
+int	main(void) {
+	Sample instance(3.1415926535);
+	instance.bar();
 
 	return (0);
 }
-
-/**
- * NOTES:
- * - constructors and destructors (in CPP) have no return type
- */
