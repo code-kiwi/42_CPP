@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stdio_streams.cpp                                  :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/12 13:58:21 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/12 14:07:00 by mhotting         ###   ########.fr       */
+/*   Created: 2024/09/12 20:11:41 by mhotting          #+#    #+#             */
+/*   Updated: 2024/09/12 20:32:27 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-int main(void) {
-    char    buff[512];
+#include "Sample.hpp"
 
-    std::cout << "Hello World !" << std::endl;
+int	main(void) {
+	Sample	instance;
 
-    std::cout << "Input a word: ";
-    std::cin >> buff;
-    std::cout << "You entered: [" << buff << "]" << std::endl;
-    return (0);
+	std::cout << "instance.publicFoo = " << instance.publicFoo << std::endl;
+	instance.publicFoo = 42;
+	std::cout << "instance.publicFoo = " << instance.publicFoo << std::endl;
+	
+	instance.publicBar();
+	// instance._privateBar(); // does not compile
+
+	return (0);
 }
-
-/**
- * NOTES:
- * - using `cin` and `cout` will help us to easily pick program input and output
- */
