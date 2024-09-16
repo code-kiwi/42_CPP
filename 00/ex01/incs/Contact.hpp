@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 09:07:02 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/14 17:57:07 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/17 00:14:59 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ class	Contact
 		);
 		~Contact();
 
-		std::string	getFirstName(void) const;
-		std::string	getLastName(void) const;
-		std::string	getNickName(void) const;
-		std::string	getPhoneNumber(void) const;
-		std::string	getDarkestSecret(void) const;
+		std::string	getFirstName(bool truncated = false) const;
+		std::string	getLastName(bool truncated = false) const;
+		std::string	getNickName(bool truncated = false) const;
+		std::string	getPhoneNumber(bool truncated = false) const;
+		std::string	getDarkestSecret(bool truncated = false) const;
 
 		void		display(void) const;
 };
