@@ -6,7 +6,7 @@
 #    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/13 15:10:24 by mhotting          #+#    #+#              #
-#    Updated: 2024/09/19 17:05:20 by codekiwi         ###   ########.fr        #
+#    Updated: 2024/09/20 00:09:58 by codekiwi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,7 @@
 NAME					=	bank
 
 CC						=	c++
-CFLAGS					=	-std=c++98
-# CFLAGS					=	-Wall -Werror -Wextra -std=c++98
+CFLAGS					=	-Wall -Werror -Wextra -std=c++98
 DEPFLAGS				=	-MP -MMD -MF
 
 # SOURCES GENERAL

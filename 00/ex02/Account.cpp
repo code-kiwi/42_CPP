@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 16:00:13 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/19 19:45:35 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/09/20 00:04:07 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,10 @@ bool	Account::makeWithdrawal(int withdrawal) {
 		std::cout << "refused" << std::endl;
 		return (false);
 	}
+	_totalNbWithdrawals++;
+	_nbWithdrawals++;
 	_amount -= withdrawal;
+	_totalAmount -= withdrawal;
 	std::cout
 		<< withdrawal
 		<< ";amount:" << checkAmount()
