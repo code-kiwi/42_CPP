@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 09:07:02 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/17 00:14:59 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/21 10:46:19 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
+
+#include <string>
 
 class	Contact
 {

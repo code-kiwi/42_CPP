@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
+#    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/13 15:10:24 by mhotting          #+#    #+#              #
-#    Updated: 2024/09/14 09:24:04 by mhotting         ###   ########.fr        #
+#    Updated: 2024/09/21 13:48:55 by codekiwi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ DEPS				=	$(addprefix $(DEPS_MAIN_DIR), $(DEPS_FILES))
 all: $(NAME)
 
 $(NAME): $(OBJS) 
-	$(CC) $(CFLAGS) $(HFLAGS) $(OBJS) -o $@
+	$(CC) $(OBJS) -o $@
 
 $(OBJS_MAIN_DIR)%.o: $(SRCS_MAIN_DIR)%.cpp
 	@mkdir -p $(@D)

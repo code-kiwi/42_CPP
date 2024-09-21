@@ -5,24 +5,32 @@
 #                                                     +:+ +:+         +:+      #
 #    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/09/13 15:10:24 by mhotting          #+#    #+#              #
-#    Updated: 2024/09/21 13:49:05 by codekiwi         ###   ########.fr        #
+#    Created: 2024/09/21 10:39:41 by codekiwi          #+#    #+#              #
+#    Updated: 2024/09/21 13:48:38 by codekiwi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #################################################
 # GENERAL
 
-NAME					=	bank
+NAME					=	zombie
 
 CC						=	c++
 CFLAGS					=	-Wall -Werror -Wextra -std=c++98
 DEPFLAGS				=	-MP -MMD -MF
+HFLAGS					=	-I$(HEADERS_DIR)
+
+# HEADERS
+HEADERS_DIR				=	incs/
+HEADERS_FILES			=	Zombie.hpp
+HEADERS					=	$(addprefix $(HEADERS_DIR), $(HEADERS_FILES))
 
 # SOURCES GENERAL
-SRCS_MAIN_DIR			=	./
-SRCS_FILES				=	tests.cpp	\
-							Account.cpp
+SRCS_MAIN_DIR			=	srcs/
+SRCS_FILES				=	main.cpp		\
+							Zombie.cpp		\
+							newZombie.cpp	\
+							randomChump.cpp
 SRCS					=	$(addprefix $(SRCS_MAIN_DIR), $(SRCS_FILES))
 
 # OBJECTS GENERAL
@@ -45,7 +53,7 @@ $(NAME): $(OBJS)
 $(OBJS_MAIN_DIR)%.o: $(SRCS_MAIN_DIR)%.cpp
 	@mkdir -p $(@D)
 	@mkdir -p $(DEPS_MAIN_DIR)$(dir $*)
-	$(CC) $(CFLAGS) $(DEPFLAGS) $(DEPS_MAIN_DIR)$*.d -c $< -o $@ 
+	$(CC) $(CFLAGS) $(HFLAGS) $(DEPFLAGS) $(DEPS_MAIN_DIR)$*.d -c $< -o $@ 
 
 -include $(DEPS)
 
