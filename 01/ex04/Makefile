@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
+#    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/21 10:39:41 by codekiwi          #+#    #+#              #
-#    Updated: 2024/09/21 21:31:14 by codekiwi         ###   ########.fr        #
+#    Updated: 2024/09/23 12:52:00 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #################################################
 # GENERAL
 
-NAME					=	program
+NAME					=	fakeSed
 
 CC						=	c++
 CFLAGS					=	-Wall -Werror -Wextra -std=c++98
