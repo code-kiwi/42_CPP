@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 09:08:32 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/17 00:25:31 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/23 13:16:07 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	getIntInput(
 
 int	main(void) {
 	std::string	command, firstName, lastName, nickName, phoneNumber, darkestSecret;
-	PhoneBook	book(8);
+	PhoneBook	book;
 
 	while (true) {
 		std::cout << "Enter a command (ADD / SEARCH / EXIT): ";

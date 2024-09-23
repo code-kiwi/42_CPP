@@ -6,13 +6,16 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 09:07:51 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/17 00:28:30 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/23 13:12:32 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
 #include "Contact.hpp"
+
+Contact::Contact(void)
+	: _firstName(""), _lastName(""), _nickName(""), _phoneNumber(""), _darkestSecret("") {};
 
 Contact::Contact(const std::string &firstName, const std::string &lastName, const std::string &nickName, const std::string &phoneNumber, const std::string &darkestSecret)
 	: _firstName(firstName), _lastName(lastName), _nickName(nickName), _phoneNumber(phoneNumber), _darkestSecret(darkestSecret) {};

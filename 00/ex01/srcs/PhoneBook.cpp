@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 09:08:12 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/17 00:27:51 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/09/23 13:21:55 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,29 @@
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook(size_t maxContacts)
-	: _maxContacts(maxContacts), _nextIndex(0) {
-	_contacts.reserve(maxContacts);
-}
+PhoneBook::PhoneBook(void) : _nextIndex(0), _isFull(false) {};
 
 PhoneBook::~PhoneBook(void) {};
 
 void	PhoneBook::addContact(const Contact& contact) {
-	if (_contacts.size() < _maxContacts) {
-		_contacts.push_back(contact);
-	} else {
-		_contacts[_nextIndex] = contact;
-	}
-	_nextIndex = (_nextIndex + 1) % _maxContacts;
+	_contacts[_nextIndex] = contact;
+	if (_nextIndex == 7 && !_isFull)
+		_isFull = true;
+	_nextIndex = (_nextIndex + 1) % 8;
 }
 
 void	PhoneBook::displayContacts(void) const {
-	if (_contacts.size() == 0) {
+	size_t	nbContacts;
+
+	if (_nextIndex == 0 && !_isFull) {
 		std::cout << "No contact registered into the phone book" << std::endl;
 		return ;
 	}
+	nbContacts = getLength();
 	std::cout << "---------------------------------------------" << std::endl;
 	std::cout << "|     Index|First-Name| Last-Name|  Nickname|" << std::endl;
 	std::cout << "---------------------------------------------" << std::endl;
-	for (size_t i = 0; i < _contacts.size(); i++) {
+	for (size_t i = 0; i < nbContacts; i++) {
 		std::string			indexString;
 		std::ostringstream	oss;
 		
@@ -61,11 +59,11 @@ void	PhoneBook::displayContacts(void) const {
 }
 
 void	PhoneBook::displayContact(size_t index) const {
-	if (index < _contacts.size()) {
+	if (index < 8) {
 		_contacts[index].display();
 	}
 }
 
 size_t	PhoneBook::getLength(void) const {
-	return (_contacts.size());
+	return (_isFull ? 8 : _nextIndex);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 09:07:02 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/21 10:46:19 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/09/23 13:10:52 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class	Contact
 		std::string	_phoneNumber;
 		std::string	_darkestSecret;
 	public:
+		Contact(void);
 		Contact(
 			const std::string &firstName,
 			const std::string &lastName,
