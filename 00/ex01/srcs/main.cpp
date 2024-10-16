@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 09:08:32 by mhotting          #+#    #+#             */
-/*   Updated: 2024/10/16 02:36:13 by codekiwi         ###   ########.fr       */
+/*   Updated: 2024/10/16 02:46:04 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ std::string	getInput(const std::string& inputStr, const std::string& errorMessag
 		if (str.empty()) {
 			std::cerr << "\tERROR: " << errorMessage << std::endl;
 		}
-	} while (str.empty());
+	} while (str.empty() && !(std::cin.eof() || std::cin.fail()));
 	return (str);
 }
 
@@ -51,7 +51,7 @@ int	getIntInput(
 			continue ;
 		}
 		break ;
-	} while (true);
+	} while (!(std::cin.eof() || std::cin.fail()));
 	return (number);
 }
 
@@ -69,6 +69,10 @@ int	main(void) {
 			nickName = getInput("Contact's nickname", "The nickname cannot be empty. Try again.");
 			phoneNumber = getInput("Contact's phone number", "The phone number cannot be empty, Try again.");
 			darkestSecret = getInput("Contact's darkest secret", "The darkest secret cannot be empty, Try again.");
+			if (std::cin.eof() || std::cin.fail()) {
+				std::cerr << "The PhoneBook encountered an error" << std::endl;
+				break ;
+			}
 			book.addContact(Contact(firstName, lastName, nickName, phoneNumber, darkestSecret));
 		} else if (command == "SEARCH") {
 			book.displayContacts();
@@ -81,6 +85,10 @@ int	main(void) {
 				std::cerr << "ERROR: This index is not valid" << std::endl;
 				std::cout << std::endl;
 				continue ;
+			}
+			if (std::cin.eof() || std::cin.fail()) {
+				std::cerr << "The PhoneBook encountered an error" << std::endl;
+				break ;
 			}
 			book.displayContact(index);
 		} else if (command == "EXIT") {
