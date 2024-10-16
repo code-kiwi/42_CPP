@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 09:08:32 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/23 13:16:07 by mhotting         ###   ########.fr       */
+/*   Updated: 2024/10/16 02:36:13 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,10 @@ int	main(void) {
 			break ;
 		} else {
 			std:: cerr << "INVALID COMMAND..." << std::endl;
+		}
+		if (std::cin.eof() || std::cin.fail()) {
+			std::cerr << "The PhoneBook encountered an error" << std::endl;
+			break ;
 		}
 		std::cout << std::endl;
 	}
