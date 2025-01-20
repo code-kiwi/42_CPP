@@ -33,9 +33,9 @@ class Contact {
         );
         ~Contact();
 
-        std::string getFirstName(bool truncated = false) const;
-        std::string getLastName(bool truncated = false) const;
-        std::string getNickName(bool truncated = false) const;
+        std::string getFirstName(void) const;
+        std::string getLastName(void) const;
+        std::string getNickName(void) const;
         std::string getPhoneNumber(void) const;
         std::string getDarkestSecret(void) const;
 

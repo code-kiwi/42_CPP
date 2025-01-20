@@ -21,33 +21,16 @@ Contact::Contact(const std::string &firstName, const std::string &lastName, cons
 
 Contact::~Contact() {};
 
-std::string Contact::getFirstName(bool truncated) const {
-    if (truncated) {
-        if (this->_firstName.length() > 10)
-            return (this->_firstName.substr(0, 9) + '.');
-        else
-            return (std::string(10 - this->_firstName.length(), ' ') + this->_firstName);
-    }
+std::string Contact::getFirstName(void) const {
     return (this->_firstName);
 }
 
-std::string Contact::getLastName(bool truncated) const {
-    if (truncated) {
-        if (this->_lastName.length() > 10)
-            return (this->_lastName.substr(0, 9) + '.');
-        else
-            return (std::string(10 - this->_lastName.length(), ' ') + this->_lastName);
-    }
+std::string Contact::getLastName(void) const {
+
     return (this->_lastName);
 }
 
-std::string Contact::getNickName(bool truncated) const {
-    if (truncated) {
-        if (this->_nickName.length() > 10)
-            return (this->_nickName.substr(0, 9) + '.');
-        else
-            return (std::string(10 - this->_nickName.length(), ' ') + this->_nickName);
-    }
+std::string Contact::getNickName(void) const {
     return (this->_nickName);
 }
 
@@ -60,11 +43,12 @@ std::string Contact::getDarkestSecret(void) const {
 }
 
 void    Contact::display(void) const {
-    std::cout << "First Name    : " << this->getFirstName() << std::endl;
-	std::cout << "Last Name     : " << this->getLastName() << std::endl;
-	std::cout << "NickName      : " << this->getNickName() << std::endl;
-	std::cout << "Phone Number  : " << this->getPhoneNumber() << std::endl;
-	std::cout << "Darkest Secret: " << this->getDarkestSecret() << std::endl;
+    std::cout << std::endl << "CONTACT INFO:" << std::endl;
+    std::cout << "- First Name    : " << this->getFirstName() << std::endl;
+	std::cout << "- Last Name     : " << this->getLastName() << std::endl;
+	std::cout << "- NickName      : " << this->getNickName() << std::endl;
+	std::cout << "- Phone Number  : " << this->getPhoneNumber() << std::endl;
+	std::cout << "- Darkest Secret: " << this->getDarkestSecret() << std::endl;
 	std::cout << std::endl;
 }
 

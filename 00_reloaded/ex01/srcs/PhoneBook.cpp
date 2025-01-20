@@ -12,12 +12,21 @@
 
 #include <iostream>
 #include <sstream>
+#include <iomanip>
 
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook(void) : _nextIndex(0), _isFull(false) {}
 
 PhoneBook::~PhoneBook(void) {}
+
+void PhoneBook::printTruncatedStr(std::string const &str) {
+    if (str.length() > 10) {
+        std::cout << std::setw(10) << str.substr(0, 9) + ".";
+    } else {
+        std::cout << std::setw(10) << std::right << str;
+    }
+}
 
 size_t  PhoneBook::getLength(void) const {
     return (_isFull ? 8 : this->_nextIndex);
@@ -48,16 +57,15 @@ void    PhoneBook::displayContacts(void) const {
 
         oss << i;
         indexString = oss.str();
-		std::cout
-			<< "|"
-			<< std::string(10 - indexString.length(), ' ') + indexString
-			<< "|"
-			<< _contacts[i].getFirstName(true)
-			<< "|"
-			<< _contacts[i].getLastName(true)
-			<< "|"
-			<< _contacts[i].getNickName(true)
-			<< "|" << std::endl;
+		std::cout << "|";
+        PhoneBook::printTruncatedStr(indexString);
+		std::cout << "|";
+        PhoneBook::printTruncatedStr(_contacts[i].getFirstName());
+		std::cout << "|";
+        PhoneBook::printTruncatedStr(_contacts[i].getLastName());
+		std::cout << "|";
+        PhoneBook::printTruncatedStr(_contacts[i].getNickName());
+		std::cout << "|" << std::endl;;
 		std::cout << "---------------------------------------------" << std::endl;
     }
     std::cout << std::endl;

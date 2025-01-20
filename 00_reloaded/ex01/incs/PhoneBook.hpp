@@ -20,6 +20,7 @@ class PhoneBook {
         Contact _contacts[8];
         size_t  _nextIndex;
         bool    _isFull;
+        static void printTruncatedStr(std::string const &str);
     
     public:
         PhoneBook(void);
