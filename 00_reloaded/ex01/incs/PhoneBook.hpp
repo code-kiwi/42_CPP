@@ -26,7 +26,7 @@ class PhoneBook {
         ~PhoneBook(void);
 
         size_t  getLength(void) const;
-        void    addContact(const Contact &contact);
+        void    addContact(void);
         void    displayContacts(void) const;
         void    displayContact(size_t index) const;
 };
