@@ -52,59 +52,41 @@ void    Contact::display(void) const {
 	std::cout << std::endl;
 }
 
+std::string Contact::fieldInput(std::string const &prompt) {
+    std::string str;
+
+    do {
+        std::cout << "\t- " << prompt << ": ";
+        std::getline(std::cin, str);
+        if (std::cin.eof() || std::cin.fail()) {
+            return "";
+        }
+        if (str.empty()) {
+            std::cerr << "\tERROR: Field cannot be empty" << std::endl;
+        }
+    } while ((str.empty() && !(std::cin.eof() || std::cin.fail())));
+    return str;
+}
+
 void Contact::setInfo(void) {
-    do {
-        std::cout << "\t- First Name: ";
-        std::getline(std::cin, this->_firstName);
-        if (this->_firstName.empty()) {
-            std::cerr << "\tERROR: Field cannot be empty" << std::endl;
-        }
-    } while ((this->_firstName.empty() && !(std::cin.eof() || std::cin.fail())));
-    if (std::cin.eof() || std::cin.fail()) {
+    this->_firstName = Contact::fieldInput("First Name");
+    if (this->_firstName == "") {
         return;
     }
-
-    do {
-        std::cout << "\t- Last Name: ";
-        std::getline(std::cin, this->_lastName);
-        if (this->_lastName.empty()) {
-            std::cerr << "\tERROR: Field cannot be empty" << std::endl;
-        }
-    } while ((this->_lastName.empty() && !(std::cin.eof() || std::cin.fail())));
-    if (std::cin.eof() || std::cin.fail()) {
+    this->_lastName = Contact::fieldInput("Last Name");
+    if (this->_lastName == "") {
         return;
     }
-
-    do {
-        std::cout << "\t- Nickname: ";
-        std::getline(std::cin, this->_nickName);
-        if (this->_nickName.empty()) {
-            std::cerr << "\tERROR: Field cannot be empty" << std::endl;
-        }
-    } while ((this->_nickName.empty() && !(std::cin.eof() || std::cin.fail())));
-    if (std::cin.eof() || std::cin.fail()) {
+    this->_nickName = Contact::fieldInput("Nickname");
+    if (this->_nickName == "") {
         return;
     }
-
-    do {
-        std::cout << "\t- Phone Number: ";
-        std::getline(std::cin, this->_phoneNumber);
-        if (this->_phoneNumber.empty()) {
-            std::cerr << "\tERROR: Field cannot be empty" << std::endl;
-        }
-    } while ((this->_phoneNumber.empty() && !(std::cin.eof() || std::cin.fail())));
-    if (std::cin.eof() || std::cin.fail()) {
+    this->_phoneNumber = Contact::fieldInput("Phone Number");
+    if (this->_phoneNumber == "") {
         return;
     }
-
-    do {
-        std::cout << "\t- Darkest Secret: ";
-        std::getline(std::cin, this->_darkestSecret);
-        if (this->_darkestSecret.empty()) {
-            std::cerr << "\tERROR: Field cannot be empty" << std::endl;
-        }
-    } while ((this->_darkestSecret.empty() && !(std::cin.eof() || std::cin.fail())));
-    if (std::cin.eof() || std::cin.fail()) {
+    this->_darkestSecret = Contact::fieldInput("Darkest Secret");
+    if (this->_darkestSecret == "") {
         return;
     }
 }

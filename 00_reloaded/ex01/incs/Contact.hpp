@@ -42,6 +42,8 @@ class Contact {
         void setInfo(void);
 
         void    display(void) const;
+
+        static std::string fieldInput(std::string const &prompt);
 };
 
 #endif
