@@ -6,7 +6,7 @@
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 19:43:34 by codekiwi          #+#    #+#             */
-/*   Updated: 2025/01/16 19:46:25 by codekiwi         ###   ########.fr       */
+/*   Updated: 2025/01/23 17:45:29 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,9 @@ int main(void) {
     std::string command;
     PhoneBook book;
 
+    std::cout << " --------------------------" << std::endl;
+    std::cout << "|  YOUR AWESOME PHONEBOOK  |" << std::endl;
+    std::cout << " --------------------------" << std::endl << std::endl;
     while (true) {
         std::cout << "Enter a command (ADD / SEARCH / EXIT): ";
 		std::getline(std::cin, command);
