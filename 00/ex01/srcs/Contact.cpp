@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/14 09:07:51 by mhotting          #+#    #+#             */
-/*   Updated: 2025/01/17 10:59:50 by mhotting         ###   ########.fr       */
+/*   Created: 2025/01/16 19:43:31 by codekiwi          #+#    #+#             */
+/*   Updated: 2025/01/24 09:03:21 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,69 +14,78 @@
 
 #include "Contact.hpp"
 
-Contact::Contact(void)
-	: _firstName(""), _lastName(""), _nickName(""), _phoneNumber(""), _darkestSecret("") {};
+Contact::Contact(void) : _firstName(""), _lastName(""), _nickName(""), _phoneNumber(""), _darkestSecret("") {};
 
 Contact::Contact(const std::string &firstName, const std::string &lastName, const std::string &nickName, const std::string &phoneNumber, const std::string &darkestSecret)
-	: _firstName(firstName), _lastName(lastName), _nickName(nickName), _phoneNumber(phoneNumber), _darkestSecret(darkestSecret) {};
+    : _firstName(firstName), _lastName(lastName), _nickName(nickName), _phoneNumber(phoneNumber), _darkestSecret(darkestSecret) {};
 
-Contact::~Contact(void) {};
+Contact::~Contact() {};
 
-std::string	Contact::getFirstName(bool truncated) const {
-	if (truncated) {
-		if (_firstName.length() > 10)
-			return (_firstName.substr(0, 9) + '.');
-		else
-			return (std::string(10 - _firstName.length(), ' ') + _firstName);
-	}
-	return (_firstName);
+std::string Contact::getFirstName(void) const {
+    return (this->_firstName);
 }
 
-std::string	Contact::getLastName(bool truncated) const {
-	if (truncated) {
-		if (_lastName.length() > 10)
-			return (_lastName.substr(0, 9) + '.');
-		else
-			return (std::string(10 - _lastName.length(), ' ') + _lastName);
-	}
-	return (_lastName);
+std::string Contact::getLastName(void) const {
+    return (this->_lastName);
 }
 
-std::string	Contact::getNickName(bool truncated) const {
-	if (truncated) {
-		if (_nickName.length() > 10)
-			return (_nickName.substr(0, 9) + '.');
-		else
-			return (std::string(10 - _nickName.length(), ' ') + _nickName);
-	}
-	return (_nickName);
+std::string Contact::getNickName(void) const {
+    return (this->_nickName);
 }
 
-std::string	Contact::getPhoneNumber(bool truncated) const {
-	if (truncated) {
-		if (_phoneNumber.length() > 10)
-			return (_phoneNumber.substr(0, 9) + '.');
-		else
-			return (std::string(10 - _phoneNumber.length(), ' ') + _phoneNumber);
-	}
-	return (_phoneNumber);
+std::string Contact::getPhoneNumber(void) const {
+    return (this->_phoneNumber);
 }
 
-std::string	Contact::getDarkestSecret(bool truncated) const {
-	if (truncated) {
-		if (_darkestSecret.length() > 10)
-			return (_darkestSecret.substr(0, 9) + '.');
-		else
-			return (std::string(10 - _darkestSecret.length(), ' ') + _darkestSecret);
-	}
-	return (_darkestSecret);
+std::string Contact::getDarkestSecret(void) const {
+    return (this->_darkestSecret);
 }
 
-void	Contact::display(void) const {
-	std::cout << "First Name    : " << getFirstName() << std::endl;
-	std::cout << "Last Name     : " << getLastName() << std::endl;
-	std::cout << "NickName      : " << getNickName() << std::endl;
-	std::cout << "Phone Number  : " << getPhoneNumber() << std::endl;
-	std::cout << "Darkest Secret: " << getDarkestSecret() << std::endl;
+void    Contact::display(void) const {
+    std::cout << std::endl << "CONTACT INFO:" << std::endl;
+    std::cout << "- First Name    : " << this->getFirstName() << std::endl;
+	std::cout << "- Last Name     : " << this->getLastName() << std::endl;
+	std::cout << "- NickName      : " << this->getNickName() << std::endl;
+	std::cout << "- Phone Number  : " << this->getPhoneNumber() << std::endl;
+	std::cout << "- Darkest Secret: " << this->getDarkestSecret() << std::endl;
 	std::cout << std::endl;
+}
+
+std::string Contact::fieldInput(std::string const &prompt) {
+    std::string str;
+
+    do {
+        std::cout << "\t- " << prompt << ": ";
+        std::getline(std::cin, str);
+        if (std::cin.eof() || std::cin.fail()) {
+            return "";
+        }
+        if (str.empty()) {
+            std::cerr << "\tERROR: Field cannot be empty" << std::endl;
+        }
+    } while ((str.empty() && !(std::cin.eof() || std::cin.fail())));
+    return str;
+}
+
+void Contact::setInfo(void) {
+    this->_firstName = Contact::fieldInput("First Name");
+    if (this->_firstName == "") {
+        return;
+    }
+    this->_lastName = Contact::fieldInput("Last Name");
+    if (this->_lastName == "") {
+        return;
+    }
+    this->_nickName = Contact::fieldInput("Nickname");
+    if (this->_nickName == "") {
+        return;
+    }
+    this->_phoneNumber = Contact::fieldInput("Phone Number");
+    if (this->_phoneNumber == "") {
+        return;
+    }
+    this->_darkestSecret = Contact::fieldInput("Darkest Secret");
+    if (this->_darkestSecret == "") {
+        return;
+    }
 }

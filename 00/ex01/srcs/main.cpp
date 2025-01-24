@@ -5,103 +5,80 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/14 09:08:32 by mhotting          #+#    #+#             */
-/*   Updated: 2024/10/16 02:46:04 by codekiwi         ###   ########.fr       */
+/*   Created: 2025/01/16 19:43:34 by codekiwi          #+#    #+#             */
+/*   Updated: 2025/01/23 17:45:29 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <limits>
 
 #include "PhoneBook.hpp"
 
-std::string	getInput(const std::string& inputStr, const std::string& errorMessage) {
-	std::string	str;
+void searchPhoneBook(const PhoneBook &book) {
+    int index;
+    std::string strIndex;
+    bool error = false;
 
-	do {
-		std::cout << "\t- " << inputStr << ": ";
-		std::getline(std::cin, str);
-		if (str.empty()) {
-			std::cerr << "\tERROR: " << errorMessage << std::endl;
-		}
-	} while (str.empty() && !(std::cin.eof() || std::cin.fail()));
-	return (str);
+    book.displayContacts();
+    if (book.getLength() == 0) {
+        return ;
+    }
+    do {
+        error = false;
+        std::cout << "Select an index: ";
+        std::getline(std::cin, strIndex);
+        if (std::cin.eof() || std::cin.fail()) {
+            return ;
+        }
+        if (strIndex.empty()) {
+            std::cerr << "ERROR: The index cannot be empty" << std::endl;
+            error = true;
+            continue ;
+        }
+        std::istringstream iss(strIndex);
+        iss >> index;
+        if (iss.fail() || !iss.eof()) {
+            std::cerr << "ERROR: Your index is not valid" << std::endl;
+            error = true;
+            continue ;
+        }
+        else if (index < 0 || index >= (int) book.getLength()) {
+            std::cerr << "ERROR: Index is between 0 and " << (int) (book.getLength() - 1) << std::endl;
+            error = true;
+            continue ;
+        }
+    } while (error);
+    book.displayContact(index);
 }
 
-int	getIntInput(
-	const std::string& inputStr,
-	const std::string& errorMessageEmpty,
-	const std::string& errorMessageNumber
+int main(void) {
+    std::string command;
+    PhoneBook book;
 
-) {
-	std::string	str;
-	int			number;
-
-	do {
-		std::cout << inputStr << ": ";
-		std::getline(std::cin, str);
-		if (str.empty()) {
-			std::cerr << "ERROR: " << errorMessageEmpty << std::endl;
-			continue ;
-		}
-		std::istringstream	iss(str);
-		if (!(iss >> number)) {
-			std::cerr << "ERROR: " << errorMessageNumber << std::endl;
-			continue ;
-		}
-		break ;
-	} while (!(std::cin.eof() || std::cin.fail()));
-	return (number);
-}
-
-int	main(void) {
-	std::string	command, firstName, lastName, nickName, phoneNumber, darkestSecret;
-	PhoneBook	book;
-
-	while (true) {
-		std::cout << "Enter a command (ADD / SEARCH / EXIT): ";
+    std::cout << " --------------------------" << std::endl;
+    std::cout << "|  YOUR AWESOME PHONEBOOK  |" << std::endl;
+    std::cout << " --------------------------" << std::endl << std::endl;
+    while (true) {
+        std::cout << "Enter a command (ADD / SEARCH / EXIT): ";
 		std::getline(std::cin, command);
-		
-		if (command == "ADD") {
-			firstName = getInput("Contact's first name", "The first name cannot be empty. Try again.");
-			lastName = getInput("Contact's last name", "The last name cannot be empty. Try again.");
-			nickName = getInput("Contact's nickname", "The nickname cannot be empty. Try again.");
-			phoneNumber = getInput("Contact's phone number", "The phone number cannot be empty, Try again.");
-			darkestSecret = getInput("Contact's darkest secret", "The darkest secret cannot be empty, Try again.");
-			if (std::cin.eof() || std::cin.fail()) {
-				std::cerr << "The PhoneBook encountered an error" << std::endl;
-				break ;
-			}
-			book.addContact(Contact(firstName, lastName, nickName, phoneNumber, darkestSecret));
-		} else if (command == "SEARCH") {
-			book.displayContacts();
-			if (book.getLength() == 0) {
-				std::cout << std::endl;
-				continue ;
-			}
-			const int	index = getIntInput("Select an index", "Your input cannot be empty", "Your input is not a number");
-			if (index < 0 || index >= (int) book.getLength()) {
-				std::cerr << "ERROR: This index is not valid" << std::endl;
-				std::cout << std::endl;
-				continue ;
-			}
-			if (std::cin.eof() || std::cin.fail()) {
-				std::cerr << "The PhoneBook encountered an error" << std::endl;
-				break ;
-			}
-			book.displayContact(index);
-		} else if (command == "EXIT") {
-			std:: cout << "Goodbye!" << std::endl;
-			break ;
-		} else {
-			std:: cerr << "INVALID COMMAND..." << std::endl;
-		}
-		if (std::cin.eof() || std::cin.fail()) {
-			std::cerr << "The PhoneBook encountered an error" << std::endl;
-			break ;
-		}
-		std::cout << std::endl;
-	}
-	return (0);
+
+        if (command == "ADD") {
+            book.addContact();
+        } else if (command == "SEARCH") {
+            searchPhoneBook(book);
+        } else if (command == "EXIT") {
+            std::cout << "Goodbye!" << std::endl;
+            break;
+        }
+        std::cout << std::endl;
+
+        if (std::cin.eof() || std::cin.fail()) {
+            std::cerr << "ERROR: The phoneBook app crashed..." << std::endl;
+            break;
+        }
+    }
+    return (0);
 }

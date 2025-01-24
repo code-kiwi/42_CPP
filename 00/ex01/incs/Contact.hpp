@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/14 09:07:02 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/23 13:10:52 by mhotting         ###   ########.fr       */
+/*   Created: 2025/01/16 19:43:49 by codekiwi          #+#    #+#             */
+/*   Updated: 2025/01/17 15:10:43 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,35 @@
 
 #include <string>
 
-class	Contact
-{
-	private:
-		std::string	_firstName;
-		std::string	_lastName;
-		std::string	_nickName;
-		std::string	_phoneNumber;
-		std::string	_darkestSecret;
-	public:
-		Contact(void);
-		Contact(
-			const std::string &firstName,
-			const std::string &lastName,
-			const std::string &nickName,
-			const std::string &phoneNumber,
-			const std::string &darkestSecret
-		);
-		~Contact();
+class Contact {
+    private:
+        std::string _firstName;
+        std::string _lastName;
+        std::string _nickName;
+        std::string _phoneNumber;
+        std::string _darkestSecret;
+    public:
+        Contact(void);
+        Contact(
+            const std::string &firstName,
+            const std::string &lastName,
+            const std::string &nickName,
+            const std::string &phoneNumber,
+            const std::string &darkestSecret
+        );
+        ~Contact();
 
-		std::string	getFirstName(bool truncated = false) const;
-		std::string	getLastName(bool truncated = false) const;
-		std::string	getNickName(bool truncated = false) const;
-		std::string	getPhoneNumber(bool truncated = false) const;
-		std::string	getDarkestSecret(bool truncated = false) const;
+        std::string getFirstName(void) const;
+        std::string getLastName(void) const;
+        std::string getNickName(void) const;
+        std::string getPhoneNumber(void) const;
+        std::string getDarkestSecret(void) const;
 
-		void		display(void) const;
+        void setInfo(void);
+
+        void    display(void) const;
+
+        static std::string fieldInput(std::string const &prompt);
 };
 
 #endif

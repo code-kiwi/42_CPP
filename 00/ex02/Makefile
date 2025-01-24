@@ -3,49 +3,47 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
+#    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/09/13 15:10:24 by mhotting          #+#    #+#              #
-#    Updated: 2024/09/21 13:49:05 by codekiwi         ###   ########.fr        #
+#    Created: 2025/01/16 17:32:37 by codekiwi          #+#    #+#              #
+#    Updated: 2025/01/24 09:03:10 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-#################################################
+##################################################
 # GENERAL
-
-NAME					=	bank
-
-CC						=	c++
-CFLAGS					=	-Wall -Werror -Wextra -std=c++98
-DEPFLAGS				=	-MP -MMD -MF
+NAME			=	stupidJob
+CC				=	c++
+CFLAGS			=	-Wall -Werror -Wextra -std=c++98
+DEPFLAGS		=	-MP -MMD -MF
 
 # SOURCES GENERAL
-SRCS_MAIN_DIR			=	./
-SRCS_FILES				=	tests.cpp	\
-							Account.cpp
-SRCS					=	$(addprefix $(SRCS_MAIN_DIR), $(SRCS_FILES))
+SRCS_MAIN_DIR	=	./
+SRCS_FILES		=	tests.cpp	\
+					Account.cpp
+SRCS			=	$(addprefix $(SRCS_MAIN_DIR), $(SRCS_FILES))
 
 # OBJECTS GENERAL
-OBJS_MAIN_DIR			=	.objs/
-OBJS_FILES				=	$(SRCS_FILES:.cpp=.o)
-OBJS					=	$(addprefix $(OBJS_MAIN_DIR), $(OBJS_FILES))
+OBJS_MAIN_DIR	=	.objs/
+OBJS_FILES		=	$(SRCS_FILES:.cpp=.o)
+OBJS			=	$(addprefix $(OBJS_MAIN_DIR), $(OBJS_FILES))
 
 # DEPENDENCIES
-DEPS_MAIN_DIR			=	.deps/
-DEPS_FILES				=	$(OBJS_FILES:.o=.d)
-DEPS					=	$(addprefix $(DEPS_MAIN_DIR), $(DEPS_FILES))
+DEPS_MAIN_DIR	=	.deps/
+DEPS_FILES		=	$(OBJS_FILES:.o=.d)
+DEPS			=	$(addprefix $(DEPS_MAIN_DIR), $(DEPS_FILES))
 
-#################################################
+##################################################
 # RULES
 all: $(NAME)
 
-$(NAME): $(OBJS) 
-	$(CC) $(OBJS) -o $@
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $@
 
 $(OBJS_MAIN_DIR)%.o: $(SRCS_MAIN_DIR)%.cpp
 	@mkdir -p $(@D)
 	@mkdir -p $(DEPS_MAIN_DIR)$(dir $*)
-	$(CC) $(CFLAGS) $(DEPFLAGS) $(DEPS_MAIN_DIR)$*.d -c $< -o $@ 
+	$(CC) $(CFLAGS) $(DEPFLAGS) $(DEPS_MAIN_DIR)$*.d -c $< -o $@
 
 -include $(DEPS)
 
