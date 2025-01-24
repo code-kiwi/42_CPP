@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
+#    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/16 17:32:37 by codekiwi          #+#    #+#              #
-#    Updated: 2025/01/16 17:50:38 by codekiwi         ###   ########.fr        #
+#    Updated: 2025/01/24 09:02:44 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ $(NAME): $(OBJS)
 $(OBJS_MAIN_DIR)%.o: $(SRCS_MAIN_DIR)%.cpp
 	@mkdir -p $(@D)
 	@mkdir -p $(DEPS_MAIN_DIR)$(dir $*)
-	$(CC) $(CFMAGS) $(DEPFLAGS) $(DEPS_MAIN_DIR)$*.d -c $< -o $@
+	$(CC) $(CFLAGS) $(DEPFLAGS) $(DEPS_MAIN_DIR)$*.d -c $< -o $@
 
 -include $(DEPS)
 

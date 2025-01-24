@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 19:43:31 by codekiwi          #+#    #+#             */
-/*   Updated: 2025/01/17 15:11:32 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/01/24 09:03:21 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ std::string Contact::getFirstName(void) const {
 }
 
 std::string Contact::getLastName(void) const {
-
     return (this->_lastName);
 }
 
