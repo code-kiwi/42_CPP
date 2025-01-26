@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:38:49 by mhotting          #+#    #+#             */
-/*   Updated: 2025/01/24 23:20:01 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/01/26 13:07:20 by codekiwi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,9 @@ int main(void) {
     std::cout << "Memory Address held by stringPTR: " << stringPTR << std::endl;
     std::cout << "Memory Address held by stringREF: " << &stringREF << std::endl;
 
+    std::cout << "Value of str: " << str << std::endl;
+    std::cout << "Value pointed to by stringPTR: " << *stringPTR << std::endl;
+    std::cout << "Value pointed to by stringREF: " << stringREF << std::endl;
+    
     return 0;
 }
