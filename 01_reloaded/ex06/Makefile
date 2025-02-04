@@ -6,14 +6,14 @@
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/24 10:08:22 by mhotting          #+#    #+#              #
-#    Updated: 2025/02/04 12:13:04 by mhotting         ###   ########.fr        #
+#    Updated: 2025/02/04 12:09:12 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #################################################
 # GENERAL
 
-NAME					=	harl
+NAME					=	harlFilter
 
 CC						=	c++
 CFLAGS					=	-Wall -Werror -Wextra -std=c++98

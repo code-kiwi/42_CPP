@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 11:19:28 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/04 12:19:02 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/02/04 13:11:15 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,22 +57,33 @@ void Harl::unknown(void) {
 		<< std::endl;
 }
 
-Harl::Harl(void) {
-    this->_funcs[0] = &Harl::debug;
-    this->_funcs[1] = &Harl::info;
-    this->_funcs[2] = &Harl::warning;
-    this->_funcs[3] = &Harl::error;
-    this->_funcs[4] = &Harl::unknown;
-}
+Harl::Harl(void) {}
 
 Harl::~Harl(void) {}
 
-void Harl::complain(std::string level) {
-    for (size_t i = 0; i < 4; i++) {
-        if (Harl::_strLevels[i] == level) {
-            (this->*_funcs[i])();
-            return ;
-        }
-    }
-    (this->*_funcs[4])();
+void Harl::complain(std::string levelName) {
+    size_t level = Harl::_resolveLevel(levelName);
+
+	switch (level) {
+		case DEBUG:
+			this->debug();
+		case INFO:
+			this->info();
+		case WARNING:
+			this->warning();
+		case ERROR:
+			this->error();
+			break;
+		default:
+			this->unknown();
+	}
+}
+
+int Harl::_resolveLevel(std::string levelName) {
+	for (int i = 0; i < 4; i++) {
+		if (Harl::_strLevels[i] == levelName) {
+			return i;
+		}
+	}
+	return -1;
 }
