@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 08:05:17 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/04 10:47:45 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/02/04 10:53:00 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,16 @@ void searchAndReplace(
     const std::string& replaceWith
 ) {
     size_t index;
+    bool noReplace = (toReplace == replaceWith || toReplace.length() == 0);
 
     std::stringstream buffer;
     buffer << infile.rdbuf();
     std::string content = buffer.str();
 
+    if (noReplace) {
+        outfile << content;
+        return ;
+    }
     while (true) {
         index = content.find(toReplace);
         if (index == std::string::npos) {
