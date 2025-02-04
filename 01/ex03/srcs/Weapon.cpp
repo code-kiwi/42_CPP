@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/21 22:01:19 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/22 18:48:26 by codekiwi         ###   ########.fr       */
+/*   Created: 2025/01/26 13:14:17 by mhotting          #+#    #+#             */
+/*   Updated: 2025/01/26 14:29:58 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
-Weapon::Weapon(const std::string& type) : _type(type) {};
+Weapon::Weapon(const std::string& type) : _type(type) {}
 
-Weapon::~Weapon(void) {};
+Weapon::~Weapon(void) {}
 
-const std::string	Weapon::getType(void) const {
-	return (_type);
+const std::string& Weapon::getType(void) const {
+    return this->_type;
 }
 
-void	Weapon::setType(const std::string& type) {
-	_type = type;
+void Weapon::setType(const std::string& type) {
+    this->_type = type;
 }

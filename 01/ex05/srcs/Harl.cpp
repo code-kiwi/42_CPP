@@ -5,19 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 14:34:02 by mhotting          #+#    #+#             */
-/*   Updated: 2024/09/23 18:07:34 by mhotting         ###   ########.fr       */
+/*   Created: 2025/02/04 11:19:28 by mhotting          #+#    #+#             */
+/*   Updated: 2025/02/04 12:19:02 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string>
 #include <iostream>
 
 #include "Harl.hpp"
 
-Harl::Harl(void) {}
-Harl::~Harl(void) {}
+const std::string Harl::_strLevels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
-void	Harl::debug(void) {
+void Harl::debug(void) {
 	std::cout 
 		<< "[DEBUG]"
 		<< std::endl
@@ -25,7 +25,7 @@ void	Harl::debug(void) {
 		<< std::endl;
 }
 
-void	Harl::info(void) {
+void Harl::info(void) {
 	std::cout 
 		<< "[INFO]"
 		<< std::endl
@@ -33,7 +33,7 @@ void	Harl::info(void) {
 		<< std::endl;
 }
 
-void	Harl::warning(void) {
+void Harl::warning(void) {
 	std::cout 
 		<< "[WARNING]"
 		<< std::endl
@@ -41,7 +41,7 @@ void	Harl::warning(void) {
 		<< std::endl;
 }
 
-void	Harl::error(void) {
+void Harl::error(void) {
 	std::cout 
 		<< "[ERROR]"
 		<< std::endl
@@ -49,7 +49,7 @@ void	Harl::error(void) {
 		<< std::endl;
 }
 
-void	Harl::unknown(void) {
+void Harl::unknown(void) {
 	std::cout 
 		<< "[UNKNOWN]"
 		<< std::endl
@@ -57,15 +57,22 @@ void	Harl::unknown(void) {
 		<< std::endl;
 }
 
-void	Harl::complain(std::string level) {
-	void	(Harl::*funcs[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-	for (size_t i = 0; i < Harl::_strLevels->length(); i++) {
-		if (Harl::_strLevels[i] == level) {
-			(this->*funcs[i])();
-			return ;
-		}
-	}
-	unknown();
+Harl::Harl(void) {
+    this->_funcs[0] = &Harl::debug;
+    this->_funcs[1] = &Harl::info;
+    this->_funcs[2] = &Harl::warning;
+    this->_funcs[3] = &Harl::error;
+    this->_funcs[4] = &Harl::unknown;
 }
 
-const std::string	Harl::_strLevels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+Harl::~Harl(void) {}
+
+void Harl::complain(std::string level) {
+    for (size_t i = 0; i < 4; i++) {
+        if (Harl::_strLevels[i] == level) {
+            (this->*_funcs[i])();
+            return ;
+        }
+    }
+    (this->*_funcs[4])();
+}

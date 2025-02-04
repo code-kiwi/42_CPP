@@ -3,27 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/21 21:59:43 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/22 18:48:28 by codekiwi         ###   ########.fr       */
+/*   Created: 2025/01/26 13:14:13 by mhotting          #+#    #+#             */
+/*   Updated: 2025/01/26 13:41:24 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_H
-#define WEAPON_H
+#ifndef WEAPON_HPP
+#define WEAPON_HPP
 
 #include <string>
 
-class   Weapon {
+class Weapon {
     private:
         std::string _type;
-
     public:
         Weapon(const std::string& type);
         ~Weapon(void);
-        const std::string   getType(void) const;
-        void                setType(const std::string& type);
+        const std::string& getType(void) const;
+        void setType(const std::string& type);
 };
 
 #endif

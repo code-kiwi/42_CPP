@@ -3,24 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/21 10:38:38 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/21 13:30:50 by codekiwi         ###   ########.fr       */
+/*   Created: 2025/01/24 09:55:39 by mhotting          #+#    #+#             */
+/*   Updated: 2025/01/24 10:11:32 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-
 #include "Zombie.hpp"
 
-void	randomChump(std::string name);
-Zombie*	newZombie(std::string name);
+Zombie* newZombie(std::string name);
+void randomChump(std::string name);
 
-int	main(void) {
-	Zombie*	zombie1 = newZombie("Maurice");
-	zombie1->announce();
-	delete zombie1;
-	randomChump("Billy");
-	return (0);
+int main(void) {
+    Zombie *zombie1;
+    
+    zombie1 = newZombie("Martin");
+    zombie1->announce();
+    delete zombie1;
+    randomChump("Michel");
+
+    return 0;
 }

@@ -3,31 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/21 22:00:43 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/22 18:56:15 by codekiwi         ###   ########.fr       */
+/*   Created: 2025/01/26 13:14:24 by mhotting          #+#    #+#             */
+/*   Updated: 2025/01/26 14:47:38 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
 #include <iostream>
 
 #include "HumanB.hpp"
+#include "Weapon.hpp"
 
-HumanB::HumanB(const std::string& name)
-    : _name(name), _weapon(NULL) {}
+HumanB::HumanB(const std::string& name) : _name(name), _weapon(NULL) {}
 
 HumanB::~HumanB(void) {}
 
-void    HumanB::attack(void) const {
-    if (_weapon == NULL) {
-        std::cout << _name << " has no weapon" << std::endl;
-        return ;
+void HumanB::attack(void) const {
+    if (this->_weapon == NULL) {
+        std::cout
+            << this->_name
+            << " has no weapon..."
+            << std::endl;
+        return;
     }
-    std::cout << _name << " attacks with their " << _weapon->getType() << std::endl;
+    std:: cout
+        << this->_name
+        << " attacks with their "
+        << this->_weapon->getType()
+        << std::endl;
 }
 
-void	HumanB::setWeapon(Weapon& weapon) {
-    _weapon = &weapon;
+void HumanB::setWeapon(Weapon& weapon) {
+    this->_weapon = &weapon;
 }

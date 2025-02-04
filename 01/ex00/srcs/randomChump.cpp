@@ -3,20 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   randomChump.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/21 12:44:04 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/21 12:52:12 by codekiwi         ###   ########.fr       */
+/*   Created: 2025/01/24 09:56:30 by mhotting          #+#    #+#             */
+/*   Updated: 2025/01/24 10:00:15 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include <string>
 
 #include "Zombie.hpp"
 
-void	randomChump(std::string name) {
-	Zombie	zombie(name);
-
-	zombie.announce();
+void randomChump(std::string name) {
+    Zombie zombie1(name);
+    zombie1.announce();
 }

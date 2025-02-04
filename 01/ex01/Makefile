@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
+#    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/09/21 10:39:41 by codekiwi          #+#    #+#              #
-#    Updated: 2024/09/21 19:24:35 by codekiwi         ###   ########.fr        #
+#    Created: 2025/01/24 10:08:22 by mhotting          #+#    #+#              #
+#    Updated: 2025/01/24 10:22:28 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ HEADERS					=	$(addprefix $(HEADERS_DIR), $(HEADERS_FILES))
 SRCS_MAIN_DIR			=	srcs/
 SRCS_FILES				=	main.cpp		\
 							Zombie.cpp		\
-							zombieHorde.cpp
+							zombieHorde.cpp	
 SRCS					=	$(addprefix $(SRCS_MAIN_DIR), $(SRCS_FILES))
 
 # OBJECTS GENERAL

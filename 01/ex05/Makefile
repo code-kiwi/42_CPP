@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/09/23 14:14:34 by mhotting          #+#    #+#              #
-#    Updated: 2024/09/23 14:16:31 by mhotting         ###   ########.fr        #
+#    Created: 2025/01/24 10:08:22 by mhotting          #+#    #+#              #
+#    Updated: 2025/02/04 12:13:04 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ HEADERS					=	$(addprefix $(HEADERS_DIR), $(HEADERS_FILES))
 
 # SOURCES GENERAL
 SRCS_MAIN_DIR			=	srcs/
-SRCS_FILES				=	main.cpp	\
+SRCS_FILES				=	main.cpp		\
 							Harl.cpp
 SRCS					=	$(addprefix $(SRCS_MAIN_DIR), $(SRCS_FILES))
 

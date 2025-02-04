@@ -3,31 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/21 21:58:59 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/22 18:47:46 by codekiwi         ###   ########.fr       */
+/*   Created: 2025/01/26 13:14:30 by mhotting          #+#    #+#             */
+/*   Updated: 2025/01/26 14:51:29 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_H
-#define HUMANB_H
+#ifndef HUMANB_HPP
+#define HUMANB_HPP
 
 #include <string>
 
-#include  "Weapon.hpp"
+#include "Weapon.hpp"
 
-class	HumanB {
-	private:
-		std::string	_name;
-		Weapon*		_weapon;
-
-	public:
-		HumanB(const std::string& name);
-		~HumanB(void);
-
-		void	attack(void) const;
-		void	setWeapon(Weapon& weapon);
+class HumanB {
+    private:
+        std::string _name;
+        Weapon* _weapon;
+    public:
+        HumanB(const std::string& name);
+        ~HumanB(void);
+        void attack(void) const;
+        void setWeapon(Weapon& weapon);
 };
 
 #endif

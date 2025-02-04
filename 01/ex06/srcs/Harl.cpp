@@ -5,19 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 14:34:02 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/04 12:23:18 by mhotting         ###   ########.fr       */
+/*   Created: 2025/02/04 11:19:28 by mhotting          #+#    #+#             */
+/*   Updated: 2025/02/04 13:11:15 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string>
 #include <iostream>
 
 #include "Harl.hpp"
 
-Harl::Harl(void) {}
-Harl::~Harl(void) {}
+const std::string Harl::_strLevels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
-void	Harl::debug(void) {
+void Harl::debug(void) {
 	std::cout 
 		<< "[DEBUG]"
 		<< std::endl
@@ -25,7 +25,7 @@ void	Harl::debug(void) {
 		<< std::endl;
 }
 
-void	Harl::info(void) {
+void Harl::info(void) {
 	std::cout 
 		<< "[INFO]"
 		<< std::endl
@@ -33,7 +33,7 @@ void	Harl::info(void) {
 		<< std::endl;
 }
 
-void	Harl::warning(void) {
+void Harl::warning(void) {
 	std::cout 
 		<< "[WARNING]"
 		<< std::endl
@@ -41,7 +41,7 @@ void	Harl::warning(void) {
 		<< std::endl;
 }
 
-void	Harl::error(void) {
+void Harl::error(void) {
 	std::cout 
 		<< "[ERROR]"
 		<< std::endl
@@ -49,7 +49,7 @@ void	Harl::error(void) {
 		<< std::endl;
 }
 
-void	Harl::unknown(void) {
+void Harl::unknown(void) {
 	std::cout 
 		<< "[UNKNOWN]"
 		<< std::endl
@@ -57,32 +57,33 @@ void	Harl::unknown(void) {
 		<< std::endl;
 }
 
-int	Harl::_resolveLevel(std::string& level) const {
-	for (size_t i = 0; i < Harl::_strLevels->length(); i++) {
-		if (Harl::_strLevels[i] == level) {
-			return (i);
+Harl::Harl(void) {}
+
+Harl::~Harl(void) {}
+
+void Harl::complain(std::string levelName) {
+    size_t level = Harl::_resolveLevel(levelName);
+
+	switch (level) {
+		case DEBUG:
+			this->debug();
+		case INFO:
+			this->info();
+		case WARNING:
+			this->warning();
+		case ERROR:
+			this->error();
+			break;
+		default:
+			this->unknown();
+	}
+}
+
+int Harl::_resolveLevel(std::string levelName) {
+	for (int i = 0; i < 4; i++) {
+		if (Harl::_strLevels[i] == levelName) {
+			return i;
 		}
 	}
-	return (-1);
+	return -1;
 }
-
-void	Harl::complain(std::string level) {
-	int	levelIndex = _resolveLevel(level);
-
-	switch (levelIndex) {
-		case DEBUG:
-			debug();
-		case INFO:
-			info();
-		case WARNING:
-			warning();
-		case ERROR:
-			error();
-			break ;
-		default:
-			unknown();
-			break;
-	}
-}
-
-const std::string	Harl::_strLevels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};

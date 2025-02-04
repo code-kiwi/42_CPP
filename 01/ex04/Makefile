@@ -5,19 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/09/21 10:39:41 by codekiwi          #+#    #+#              #
-#    Updated: 2024/09/23 12:52:00 by mhotting         ###   ########.fr        #
+#    Created: 2025/01/24 10:08:22 by mhotting          #+#    #+#              #
+#    Updated: 2025/02/04 10:35:03 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #################################################
 # GENERAL
 
-NAME					=	fakeSed
-
+NAME					=	mySed
 CC						=	c++
 CFLAGS					=	-Wall -Werror -Wextra -std=c++98
 DEPFLAGS				=	-MP -MMD -MF
+HFLAGS					=	-I$(HEADERS_DIR)
 
 # SOURCES GENERAL
 SRCS_MAIN_DIR			=	./
@@ -44,7 +44,7 @@ $(NAME): $(OBJS)
 $(OBJS_MAIN_DIR)%.o: $(SRCS_MAIN_DIR)%.cpp
 	@mkdir -p $(@D)
 	@mkdir -p $(DEPS_MAIN_DIR)$(dir $*)
-	$(CC) $(CFLAGS) $(DEPFLAGS) $(DEPS_MAIN_DIR)$*.d -c $< -o $@ 
+	$(CC) $(CFLAGS) $(HFLAGS) $(DEPFLAGS) $(DEPS_MAIN_DIR)$*.d -c $< -o $@ 
 
 -include $(DEPS)
 

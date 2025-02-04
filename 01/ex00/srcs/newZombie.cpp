@@ -3,18 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/21 11:12:29 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/21 12:57:09 by codekiwi         ###   ########.fr       */
+/*   Created: 2025/01/24 09:56:27 by mhotting          #+#    #+#             */
+/*   Updated: 2025/01/24 09:58:42 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include <string>
 
 #include "Zombie.hpp"
 
-Zombie*	newZombie(std::string name) {
-	return (new Zombie(name));
+Zombie* newZombie(std::string name) {
+    return new Zombie(name);
 }

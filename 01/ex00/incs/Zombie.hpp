@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/21 10:44:32 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/21 12:43:54 by codekiwi         ###   ########.fr       */
+/*   Created: 2025/01/24 09:34:56 by mhotting          #+#    #+#             */
+/*   Updated: 2025/01/24 09:44:55 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,14 @@
 
 #include <string>
 
-class	Zombie
-{
-	private:
-		std::string	_name;
-		
-	public:
-		Zombie(const std::string& name);
-		~Zombie(void);
-		void	announce(void);
+class Zombie {
+    private:
+        std::string _name;
+
+    public:
+        Zombie(const std::string &name);
+        ~Zombie(void);
+        void announce(void) const;
 };
 
 #endif

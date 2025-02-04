@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
+#    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/09/21 10:39:41 by codekiwi          #+#    #+#              #
-#    Updated: 2024/09/21 21:31:14 by codekiwi         ###   ########.fr        #
+#    Created: 2025/01/24 10:08:22 by mhotting          #+#    #+#              #
+#    Updated: 2025/01/24 10:22:28 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #################################################
 # GENERAL
 
-NAME					=	program
+NAME					=	brain
 
 CC						=	c++
 CFLAGS					=	-Wall -Werror -Wextra -std=c++98

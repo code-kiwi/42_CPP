@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
+#    By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/09/21 10:39:41 by codekiwi          #+#    #+#              #
-#    Updated: 2024/09/21 21:45:49 by codekiwi         ###   ########.fr        #
+#    Created: 2025/01/24 10:08:22 by mhotting          #+#    #+#              #
+#    Updated: 2025/01/26 13:17:33 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,17 +22,17 @@ HFLAGS					=	-I$(HEADERS_DIR)
 
 # HEADERS
 HEADERS_DIR				=	incs/
-HEADERS_FILES			=	HumanA.hpp	\
-							HumanB.hpp	\
-							Weapon.hpp
+HEADERS_FILES			=	Weapon.hpp		\
+							HumanA.hpp		\
+							HumanB.hpp
 HEADERS					=	$(addprefix $(HEADERS_DIR), $(HEADERS_FILES))
 
 # SOURCES GENERAL
 SRCS_MAIN_DIR			=	srcs/
-SRCS_FILES				=	main.cpp	\
-							HumanA.cpp	\
-							HumanB.cpp	\
-							Weapon.cpp
+SRCS_FILES				=	main.cpp		\
+							Weapon.cpp		\
+							HumanA.cpp		\
+							HumanB.cpp
 SRCS					=	$(addprefix $(SRCS_MAIN_DIR), $(SRCS_FILES))
 
 # OBJECTS GENERAL
