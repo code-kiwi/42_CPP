@@ -3,31 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/16 19:02:32 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/10/16 19:15:49 by codekiwi         ###   ########.fr       */
+/*   Created: 2025/02/05 19:51:31 by mhotting          #+#    #+#             */
+/*   Updated: 2025/02/05 20:12:43 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED_HPP
 #define FIXED_HPP
 
-class Fixed
-{
-	private:
-		int					_value;
-		static const int	_numBits;
-	public:
-		Fixed();
-		Fixed(const Fixed& f);
+class Fixed {
+    private:
+        int _rawBits;
+        static const int _numBits;
 
-		~Fixed();
+    public:
+        Fixed(void);
+        Fixed(const Fixed& f);
+        ~Fixed(void);
+        
+        Fixed& operator=(const Fixed& f);
 
-		Fixed&	operator=(const Fixed& f);
-
-		int		getRawBits(void) const;
-		void	setRawBits(const int raw);
+        int getRawBits(void) const;
+        void setRawBits(const int raw);
 };
 
 #endif

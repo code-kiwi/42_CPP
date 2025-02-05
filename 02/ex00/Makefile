@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+         #
+#    By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/09/23 14:14:34 by mhotting          #+#    #+#              #
-#    Updated: 2024/10/16 20:11:40 by codekiwi         ###   ########.fr        #
+#    Created: 2025/02/05 19:50:53 by mhotting          #+#    #+#              #
+#    Updated: 2025/02/05 20:11:52 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #################################################
 # GENERAL
 
-NAME					=	ex00
+NAME					=	fixed00
 
 CC						=	c++
 CFLAGS					=	-Wall -Werror -Wextra -std=c++98
@@ -27,7 +27,7 @@ HEADERS					=	$(addprefix $(HEADERS_DIR), $(HEADERS_FILES))
 
 # SOURCES GENERAL
 SRCS_MAIN_DIR			=	srcs/
-SRCS_FILES				=	main.cpp	\
+SRCS_FILES				=	main.cpp		\
 							Fixed.cpp
 SRCS					=	$(addprefix $(SRCS_MAIN_DIR), $(SRCS_FILES))
 
