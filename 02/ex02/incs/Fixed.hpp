@@ -6,12 +6,14 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 19:51:31 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/06 02:03:07 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/02/06 15:43:01 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED_HPP
 #define FIXED_HPP
+
+#include <iostream>
 
 class Fixed {
     private:
