@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+         #
+#    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 19:50:53 by mhotting          #+#    #+#              #
-#    Updated: 2025/02/06 15:42:06 by mhotting         ###   ########.fr        #
+#    Updated: 2025/02/07 18:17:23 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,13 +22,16 @@ HFLAGS					=	-I$(HEADERS_DIR)
 
 # HEADERS
 HEADERS_DIR				=	incs/
-HEADERS_FILES			=	Fixed.hpp
+HEADERS_FILES			=	Fixed.hpp		\
+							Point.hpp
 HEADERS					=	$(addprefix $(HEADERS_DIR), $(HEADERS_FILES))
 
 # SOURCES GENERAL
 SRCS_MAIN_DIR			=	srcs/
 SRCS_FILES				=	main.cpp		\
-							Fixed.cpp
+							Fixed.cpp		\
+							Point.cpp		\
+							bsp.cpp
 SRCS					=	$(addprefix $(SRCS_MAIN_DIR), $(SRCS_FILES))
 
 # OBJECTS GENERAL
