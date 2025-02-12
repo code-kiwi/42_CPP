@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 22:30:59 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/11 15:27:51 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/02/12 10:26:13 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,4 +93,29 @@ void ClapTrap::beRepaired(unsigned int amount) {
         << "ClapTrap " << this->_name
         << " has been repaired and got " << amount << " hit points!"
         << std::endl;
+}
+
+const std::string& ClapTrap::getName(void) const {
+    return this->_name;
+}
+
+unsigned int ClapTrap::getHitPoints(void) const {
+    return this->_hitPoints;
+}
+
+unsigned int ClapTrap::getEnergyPoints(void) const {
+    return this->_energyPoints;
+}
+
+unsigned int ClapTrap::getAttackDamage(void) const {
+    return this->_attackDamage;
+}
+
+std::ostream& operator<<(std::ostream& o, const ClapTrap& ct) {
+    std::cout
+        << "CLAPTRAP - Name: " << ct.getName()
+        << ", HitPoints: " << ct.getHitPoints()
+        << ", EnergyPoints: " << ct.getEnergyPoints()
+        << ", AttackDamages: " << ct.getAttackDamage();
+    return o;
 }

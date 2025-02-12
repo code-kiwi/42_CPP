@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 22:23:29 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/10 22:29:10 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/02/12 10:27:52 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,13 @@ class ClapTrap {
         void attack(const std::string& target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
+
+        const std::string& getName(void) const;
+        unsigned int getHitPoints(void) const;
+        unsigned int getEnergyPoints(void) const;
+        unsigned int getAttackDamage(void) const;
 };
+
+std::ostream& operator<<(std::ostream& o, const ClapTrap& ct);
 
 #endif
