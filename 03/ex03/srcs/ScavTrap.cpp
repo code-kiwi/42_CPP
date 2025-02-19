@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 10:58:54 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/19 02:38:01 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/02/19 10:57:29 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@
 
 ScavTrap::ScavTrap(void): ClapTrap() {
     std::cout << "ScavTrap default constructor called for " << this->_name << std::endl;
-    this->_hitPoints = 100;
-    this->_energyPoints = 50;
-    this->_attackDamage = 20;
+    this->_hitPoints = ScavTrap::getDefaultHitPoints();
+    this->_energyPoints = ScavTrap::getDefaultEnergyPoints();
+    this->_attackDamage = ScavTrap::getDefaultAttackDamage();
 }
 
 ScavTrap::ScavTrap(const std::string& name): ClapTrap(name) {
     std::cout << "ScavTrap name constructor called for " << this->_name << std::endl;
-    this->_hitPoints = 100;
-    this->_energyPoints = 50;
-    this->_attackDamage = 20;
+    this->_hitPoints = ScavTrap::getDefaultHitPoints();
+    this->_energyPoints = ScavTrap::getDefaultEnergyPoints();
+    this->_attackDamage = ScavTrap::getDefaultAttackDamage();
 }
 
 ScavTrap::ScavTrap(const ScavTrap& otherScavTrap): ClapTrap(otherScavTrap) {
@@ -71,6 +71,18 @@ void ScavTrap::guardGate(void) {
     std::cout
         << "The ScavTrap " << this->_name
         << " is now in Gate keeper mode!" << std::endl;
+}
+
+unsigned int ScavTrap::getDefaultHitPoints(void) {
+    return 100;
+}
+
+unsigned int ScavTrap::getDefaultEnergyPoints(void) {
+    return 50;
+}
+
+unsigned int ScavTrap::getDefaultAttackDamage(void) {
+    return 20;
 }
 
 std::ostream& operator<<(std::ostream& o, const ScavTrap& st) {

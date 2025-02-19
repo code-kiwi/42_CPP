@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 22:30:59 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/18 22:50:19 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/02/19 10:47:23 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void): _name("Unknown"), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
+ClapTrap::ClapTrap(void): _name("Unknown"), _hitPoints(ClapTrap::getDefaultHitPoints()), _energyPoints(ClapTrap::getDefaultEnergyPoints()), _attackDamage(ClapTrap::getAttackDamage()) {
     std::cout << "ClapTrap default constructor called for " << this->_name << std::endl;
 }
 
-ClapTrap::ClapTrap(const std::string& name): _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
+ClapTrap::ClapTrap(const std::string& name): _name(name), _hitPoints(ClapTrap::getDefaultHitPoints()), _energyPoints(ClapTrap::getDefaultEnergyPoints()), _attackDamage(ClapTrap::getAttackDamage()) {
     std::cout << "ClapTrap name constructor called for " << this->_name << std::endl;
 }
 
@@ -109,6 +109,18 @@ unsigned int ClapTrap::getEnergyPoints(void) const {
 
 unsigned int ClapTrap::getAttackDamage(void) const {
     return this->_attackDamage;
+}
+
+unsigned int ClapTrap::getDefaultHitPoints(void) {
+    return 10;
+}
+
+unsigned int ClapTrap::getDefaultEnergyPoints(void) {
+    return 10;
+}
+
+unsigned int ClapTrap::getDefaultAttackDamage(void) {
+    return 0;
 }
 
 std::ostream& operator<<(std::ostream& o, const ClapTrap& ct) {

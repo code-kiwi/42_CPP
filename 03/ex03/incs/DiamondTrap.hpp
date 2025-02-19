@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 02:06:10 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/19 02:21:15 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/02/19 11:34:02 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@ class DiamondTrap: public ScavTrap, public FragTrap {
 
         DiamondTrap& operator=(const DiamondTrap& otherDiamondTrap);
 
+        void attack(const std::string& target);
         void whoAmI();
+
+        const std::string& getName(void) const;
 };
 
 std::ostream& operator<<(std::ostream& o, const DiamondTrap& dt);

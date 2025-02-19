@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 22:23:29 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/19 03:06:00 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/02/19 10:57:23 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class ClapTrap {
         unsigned int _hitPoints;
         unsigned int _energyPoints;
         unsigned int _attackDamage;
-        
+
     public:
         ClapTrap(void);
         ClapTrap(const std::string& name);
@@ -39,6 +39,10 @@ class ClapTrap {
         unsigned int getHitPoints(void) const;
         unsigned int getEnergyPoints(void) const;
         unsigned int getAttackDamage(void) const;
+
+        static unsigned int getDefaultHitPoints(void);
+        static unsigned int getDefaultEnergyPoints(void);
+        static unsigned int getDefaultAttackDamage(void);
 };
 
 std::ostream& operator<<(std::ostream& o, const ClapTrap& ct);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 10:59:09 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/19 02:38:59 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/02/19 10:57:19 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ class ScavTrap: virtual public ClapTrap {
         
         void attack(const std::string& target);
         void guardGate(void);
+
+        static unsigned int getDefaultHitPoints(void);
+        static unsigned int getDefaultEnergyPoints(void);
+        static unsigned int getDefaultAttackDamage(void);
 };
 
 std::ostream& operator<<(std::ostream& o, const ScavTrap& st);

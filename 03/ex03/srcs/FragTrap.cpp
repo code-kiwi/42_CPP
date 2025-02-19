@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 10:58:54 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/19 02:38:16 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/02/19 10:57:31 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,18 @@ void FragTrap::highFivesGuys(void) {
     std::cout
         << "The FragTrap " << this->_name
         << " requests a super high five!" << std::endl;
+}
+
+unsigned int FragTrap::getDefaultHitPoints(void) {
+    return 100;
+}
+
+unsigned int FragTrap::getDefaultEnergyPoints(void) {
+    return 100;
+}
+
+unsigned int FragTrap::getDefaultAttackDamage(void) {
+    return 30;
 }
 
 std::ostream& operator<<(std::ostream& o, const FragTrap& st) {
