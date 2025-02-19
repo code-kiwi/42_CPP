@@ -6,14 +6,14 @@
 #    By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 19:50:53 by mhotting          #+#    #+#              #
-#    Updated: 2025/02/10 22:23:15 by mhotting         ###   ########.fr        #
+#    Updated: 2025/02/19 03:33:23 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #################################################
 # GENERAL
 
-NAME					=	clapTrap00
+NAME					=	diamondTrap03
 
 CC						=	c++
 CFLAGS					=	-Wall -Werror -Wextra -std=c++98
@@ -22,13 +22,19 @@ HFLAGS					=	-I$(HEADERS_DIR)
 
 # HEADERS
 HEADERS_DIR				=	incs/
-HEADERS_FILES			=	ClapTrap.hpp
+HEADERS_FILES			=	ClapTrap.hpp	\
+							ScavTrap.hpp	\
+							FragTrap.hpp	\
+							DiamondTrap.hpp
 HEADERS					=	$(addprefix $(HEADERS_DIR), $(HEADERS_FILES))
 
 # SOURCES GENERAL
 SRCS_MAIN_DIR			=	srcs/
 SRCS_FILES				=	main.cpp		\
-							ClapTrap.cpp
+							ClapTrap.cpp	\
+							ScavTrap.cpp	\
+							FragTrap.cpp	\
+							DiamondTrap.cpp
 SRCS					=	$(addprefix $(SRCS_MAIN_DIR), $(SRCS_FILES))
 
 # OBJECTS GENERAL
