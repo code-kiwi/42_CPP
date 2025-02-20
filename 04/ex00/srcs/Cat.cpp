@@ -1,0 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/20 20:11:46 by mhotting          #+#    #+#             */
+/*   Updated: 2025/02/20 22:28:41 by mhotting         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Cat.hpp"
+
+Cat::Cat(void): Animal("Cat") {
+    std::cout << "Cat default Constructor called." << std::endl;
+}
+
+Cat::Cat(const Cat& otherCat): Animal(otherCat) {
+    std::cout << "Cat copy Constructor called." << std::endl;
+}
+
+Cat::~Cat(void) {
+    std::cout << "Cat Destructor called." << std::endl;
+}
+
+Cat& Cat::operator=(const Cat& otherCat) {
+    std::cout << "Cat assignment operator called." << std::endl;
+    if (this != &otherCat) {
+        Animal::operator=(otherCat);
+    }
+    return *this;
+}
+
+void Cat::makeSound(void) const {
+    std::cout << "The Cat says MEOOOOOOOW." << std::endl;
+}
+
+std::ostream& operator<<(std::ostream& o, const Cat& cat) {
+    std::cout << "Cat of type: " << cat.getType();
+    return o;
+}
