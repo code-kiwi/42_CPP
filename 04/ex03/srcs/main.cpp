@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 04:28:27 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/21 18:47:45 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/02/21 19:09:57 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int main(void) {
         delete char3;
     }
 
-    // Other tests found online
+    // Other tests for MaterialSource
     {
         IMateriaSource* matSrc = new MateriaSource();
         MateriaSource* matSrcPtr = (MateriaSource*) matSrc;
@@ -106,12 +106,28 @@ int main(void) {
         std::cout << *char1Ptr << std::endl;
 
         std::cout << std::endl;
-        ICharacter* bob = new Character("bob");
-        char1->use(0, *bob);
-        char1->use(1, *bob);
+        tmp = matSrc->createMateria("cure");
+        char1->equip(tmp);
+        tmp = matSrc->createMateria("fire");
+        char1->equip(tmp);
+        std::cout << "tmp: " << tmp << std::endl;
+        tmp = matSrc->createMateria("ice");
+        char1->equip(tmp);
+        std::cout << *char1Ptr << std::endl;
+        tmp = matSrc->createMateria("ice");
+        char1->equip(tmp);
+        delete tmp;
+        tmp = NULL;
 
         std::cout << std::endl;
-        delete bob;
+        ICharacter* char2 = new Character("Jenny");
+        char1->use(0, *char2);
+        char1->use(1, *char2);
+        char1->use(2, *char2);
+        char1->use(3, *char2);
+
+        std::cout << std::endl;
+        delete char2;
         delete char1;
         delete matSrc;
     }
