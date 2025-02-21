@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+         #
+#    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 19:50:53 by mhotting          #+#    #+#              #
-#    Updated: 2025/02/21 04:02:03 by mhotting         ###   ########.fr        #
+#    Updated: 2025/02/21 14:45:48 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,11 +22,6 @@ HFLAGS					=	-I$(HEADERS_DIR)
 
 # HEADERS
 HEADERS_DIR				=	incs/
-HEADERS_FILES			=	Animal.hpp		\
-							Cat.hpp			\
-							Dog.hpp			\
-							Brain.hpp
-HEADERS					=	$(addprefix $(HEADERS_DIR), $(HEADERS_FILES))
 
 # SOURCES GENERAL
 SRCS_MAIN_DIR			=	srcs/
