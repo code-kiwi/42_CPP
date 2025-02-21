@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 05:07:40 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/21 05:11:58 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/02/21 08:35:18 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,15 @@
 #include "AMateria.hpp"
 
 class Ice: public AMateria {
-    Ice(void);
-    Ice(const Ice& otherIce);
-    ~Ice(void);
+    public:
+        Ice(void);
+        Ice(const Ice& otherIce);
+        ~Ice(void);
 
-    Ice& operator=(const Ice& otherIce);
+        Ice& operator=(const Ice& otherIce);
 
-    AMateria* clone() const;
-    void use(ICharacter& target);
+        AMateria* clone() const;
+        void use(ICharacter& target);
 };
 
 #endif

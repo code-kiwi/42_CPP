@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 05:40:44 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/21 08:20:45 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/02/21 09:08:09 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,13 @@ Character::Character(const std::string& name): _name(name) {
 
 }
 
-Character::Character(const Character& otherCharacter) {
+Character::Character(const Character& otherCharacter): _name(otherCharacter._name + "_copy") {
     std::cout << "Character copy constructor called" << std::endl;
     for (int i = 0; i < Character::INVENTORY_SIZE; i++) {
+        if (otherCharacter._inventory[i] == NULL) {
+            this->_inventory[i] = NULL;
+            continue ;
+        }
         this->_inventory[i] = otherCharacter._inventory[i]->clone();
     }
 }
@@ -55,9 +59,13 @@ Character::~Character(void) {
 Character& Character::operator=(const Character& otherCharacter) {
     std::cout << "Character assignment operator called" << std::endl;
     if (this != &otherCharacter) {
-        this->_name = otherCharacter._name;
+        this->_name = otherCharacter._name + "_copy";
         Character::deleteInventory(this->_inventory);
         for (int i = 0; i < Character::INVENTORY_SIZE; i++) {
+            if (otherCharacter._inventory[i] == NULL) {
+                this->_inventory[i] = NULL;
+                continue ;
+            }
             this->_inventory[i] = otherCharacter._inventory[i]->clone();
         }
     }
@@ -132,18 +140,19 @@ std::ostream& operator<<(std::ostream& o, const Character& character) {
     const AMateria** inventory = character.getInventory();
     int inventorySize = Character::getInventorySize();
     o
-        << "CHARACTER: " << character.getName()
+        << "---------------CHARACTER---------------"
+        << std::endl
+        << "Name: " << character.getName()
         << std::endl
         << "Inventory:" << std::endl;
     for (int i = 0; i < inventorySize; i++) {
         if (inventory[i] == NULL) {
-            o << "\t- Empty block";
+            o << "- Empty block";
         } else {
-            o << "\t- " << inventory[i]->getType();
+            o << "- " << inventory[i]->getType();
         }
-        if (i != inventorySize - 1) {
-            o << std::endl;
-        }
+        o << std::endl;
     }
+    o << "------------------END------------------";
     return o;
 }
