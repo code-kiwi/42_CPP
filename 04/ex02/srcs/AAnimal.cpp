@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 20:11:46 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/21 03:37:23 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/02/21 03:39:47 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,6 @@ AAnimal& AAnimal::operator=(const AAnimal& otherAAnimal) {
         this->_type = otherAAnimal._type;
     }
     return *this;
-}
-
-void AAnimal::makeSound(void) const {
-    std::cout << "The AAnimal makes a weird sound. It doesn't really know what kind of animal it is." << std::endl;
 }
 
 const std::string& AAnimal::getType(void) const {

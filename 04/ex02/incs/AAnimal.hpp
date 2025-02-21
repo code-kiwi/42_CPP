@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 19:44:22 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/21 03:37:29 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/02/21 03:44:11 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class AAnimal {
 
         AAnimal& operator=(const AAnimal& otherAnimal);
 
-        virtual void makeSound(void) const;
+        virtual void makeSound(void) const = 0;
 
         const std::string& getType(void) const;
 };
