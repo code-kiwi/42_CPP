@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 15:29:37 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/21 16:54:16 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/02/21 18:33:49 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 
 #include <iostream>
 
+#include "IMateriaSource.hpp"
 #include "AMateria.hpp"
 
-class MateriaSource {
+class MateriaSource: public IMateriaSource {
     private:
         enum { STORAGE_SIZE = 4 };
         AMateria* _storage[MateriaSource::STORAGE_SIZE];

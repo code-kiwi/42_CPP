@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 04:28:27 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/21 15:56:47 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/02/21 18:47:45 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include "Character.hpp"
 #include "Ice.hpp"
 #include "Cure.hpp"
+#include "MateriaSource.hpp"
+#include "IMateriaSource.hpp"
 
 int main(void) {
     // Basic tests of Character class
@@ -75,6 +77,43 @@ int main(void) {
         delete char1;
         delete char2;
         delete char3;
+    }
+
+    // Other tests found online
+    {
+        IMateriaSource* matSrc = new MateriaSource();
+        MateriaSource* matSrcPtr = (MateriaSource*) matSrc;
+
+        std::cout << std::endl;
+        std::cout << *matSrcPtr << std::endl;
+
+        std::cout << std::endl;
+        matSrc->learnMateria(new Ice());
+        matSrc->learnMateria(new Cure());
+        std::cout << *matSrcPtr << std::endl;
+
+        std::cout << std::endl;
+        ICharacter* char1 = new Character("John Doe");
+        Character* char1Ptr = (Character*) char1;
+        std::cout << *char1Ptr << std::endl;
+
+        std::cout << std::endl;
+        AMateria* tmp;
+        tmp = matSrc->createMateria("ice");
+        char1->equip(tmp);
+        tmp = matSrc->createMateria("cure");
+        char1->equip(tmp);
+        std::cout << *char1Ptr << std::endl;
+
+        std::cout << std::endl;
+        ICharacter* bob = new Character("bob");
+        char1->use(0, *bob);
+        char1->use(1, *bob);
+
+        std::cout << std::endl;
+        delete bob;
+        delete char1;
+        delete matSrc;
     }
     
     return 0;
