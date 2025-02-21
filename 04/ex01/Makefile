@@ -6,14 +6,14 @@
 #    By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 19:50:53 by mhotting          #+#    #+#              #
-#    Updated: 2025/02/21 02:40:07 by mhotting         ###   ########.fr        #
+#    Updated: 2025/02/21 04:02:03 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #################################################
 # GENERAL
 
-NAME					=	animal00
+NAME					=	animal01
 
 CC						=	c++
 CFLAGS					=	-Wall -Werror -Wextra -std=c++98
