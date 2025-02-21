@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+         #
+#    By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 19:50:53 by mhotting          #+#    #+#              #
-#    Updated: 2025/02/21 14:46:28 by mhotting         ###   ########.fr        #
+#    Updated: 2025/02/21 16:40:16 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,8 @@ SRCS_FILES				=	main.cpp		\
 							AMateria.cpp	\
 							Ice.cpp			\
 							Cure.cpp		\
-							Character.cpp
+							Character.cpp	\
+							MateriaSource.cpp
 SRCS					=	$(addprefix $(SRCS_MAIN_DIR), $(SRCS_FILES))
 
 # OBJECTS GENERAL

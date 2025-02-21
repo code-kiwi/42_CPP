@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 05:40:44 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/21 09:08:09 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/02/21 16:56:36 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 #include "Character.hpp"
 
-void Character::initInventory(AMateria** _inventory) {
+void Character::initInventory(AMateria** inventory) {
     for (int i = 0; i < Character::INVENTORY_SIZE; i++) {
-        _inventory[i] = NULL;
+        inventory[i] = NULL;
     }
 }
 
-void Character::deleteInventory(AMateria** _inventory) {
+void Character::deleteInventory(AMateria** inventory) {
     for (int i = 0; i < Character::INVENTORY_SIZE; i++) {
-        if (_inventory[i] != NULL) {
-            delete _inventory[i];
-            _inventory[i] = NULL;
+        if (inventory[i] != NULL) {
+            delete inventory[i];
+            inventory[i] = NULL;
         }
     }
 }
@@ -37,17 +37,12 @@ Character::Character(void): _name("John Doe") {
 Character::Character(const std::string& name): _name(name) {
     std::cout << "Character string constructor called" << std::endl;
     Character::initInventory(this->_inventory);
-
 }
 
 Character::Character(const Character& otherCharacter): _name(otherCharacter._name + "_copy") {
     std::cout << "Character copy constructor called" << std::endl;
     for (int i = 0; i < Character::INVENTORY_SIZE; i++) {
-        if (otherCharacter._inventory[i] == NULL) {
-            this->_inventory[i] = NULL;
-            continue ;
-        }
-        this->_inventory[i] = otherCharacter._inventory[i]->clone();
+        this->_inventory[i] = (otherCharacter._inventory[i] == NULL ? NULL : otherCharacter._inventory[i]->clone());
     }
 }
 
@@ -62,11 +57,7 @@ Character& Character::operator=(const Character& otherCharacter) {
         this->_name = otherCharacter._name + "_copy";
         Character::deleteInventory(this->_inventory);
         for (int i = 0; i < Character::INVENTORY_SIZE; i++) {
-            if (otherCharacter._inventory[i] == NULL) {
-                this->_inventory[i] = NULL;
-                continue ;
-            }
-            this->_inventory[i] = otherCharacter._inventory[i]->clone();
+            this->_inventory[i] = (otherCharacter._inventory[i] == NULL ? NULL : otherCharacter._inventory[i]->clone());
         }
     }
     return *this;
@@ -139,12 +130,8 @@ const AMateria** Character::getInventory(void) const {
 std::ostream& operator<<(std::ostream& o, const Character& character) {
     const AMateria** inventory = character.getInventory();
     int inventorySize = Character::getInventorySize();
-    o
-        << "---------------CHARACTER---------------"
-        << std::endl
-        << "Name: " << character.getName()
-        << std::endl
-        << "Inventory:" << std::endl;
+    o << "---------------CHARACTER---------------" << std::endl << "Name: " << character.getName() << std::endl;
+    o << "Inventory:" << std::endl;
     for (int i = 0; i < inventorySize; i++) {
         if (inventory[i] == NULL) {
             o << "- Empty block";

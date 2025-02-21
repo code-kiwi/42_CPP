@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 05:35:42 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/21 08:12:58 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/02/21 15:59:19 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
 
 class Character: public ICharacter {
     private:
-        static const int INVENTORY_SIZE = 4;
+        enum { INVENTORY_SIZE = 4 };
         std::string _name;
-        AMateria* _inventory[4];
+        AMateria* _inventory[Character::INVENTORY_SIZE];
 
         static void initInventory(AMateria** _inventory);
         static void deleteInventory(AMateria** _inventory);
