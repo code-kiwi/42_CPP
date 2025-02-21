@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 04:52:23 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/21 04:53:51 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/02/21 05:31:02 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <string>
 
 #include "AMateria.hpp"
+
+class AMateria;
 
 class ICharacter {
     public:

@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 19:50:53 by mhotting          #+#    #+#              #
-#    Updated: 2025/02/21 04:28:20 by mhotting         ###   ########.fr        #
+#    Updated: 2025/02/21 07:58:52 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,12 +22,20 @@ HFLAGS					=	-I$(HEADERS_DIR)
 
 # HEADERS
 HEADERS_DIR				=	incs/
-HEADERS_FILES			=	
+HEADERS_FILES			=	AMateria.hpp	\
+							Ice.hpp			\
+							Cure.hpp		\
+							ICharacter.hpp	\
+							Character.hpp
 HEADERS					=	$(addprefix $(HEADERS_DIR), $(HEADERS_FILES))
 
 # SOURCES GENERAL
 SRCS_MAIN_DIR			=	srcs/
-SRCS_FILES				=	main.cpp
+SRCS_FILES				=	main.cpp		\
+							AMateria.cpp	\
+							Ice.cpp			\
+							Cure.cpp		\
+							Character.cpp
 SRCS					=	$(addprefix $(SRCS_MAIN_DIR), $(SRCS_FILES))
 
 # OBJECTS GENERAL
