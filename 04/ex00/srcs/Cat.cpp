@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 20:11:46 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/20 22:28:41 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/02/21 08:27:26 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ void Cat::makeSound(void) const {
 }
 
 std::ostream& operator<<(std::ostream& o, const Cat& cat) {
-    std::cout << "Cat of type: " << cat.getType();
+    o << "Cat of type: " << cat.getType();
     return o;
 }

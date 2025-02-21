@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 10:58:54 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/19 11:42:04 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/02/21 08:24:06 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void ScavTrap::guardGate(void) {
 }
 
 std::ostream& operator<<(std::ostream& o, const ScavTrap& st) {
-    std::cout
+    o
         << "SCAVTRAP - Name: " << st.getName()
         << ", HitPoints: " << st.getHitPoints()
         << ", EnergyPoints: " << st.getEnergyPoints()

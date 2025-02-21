@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 10:58:54 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/19 10:57:31 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/02/21 08:25:03 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ unsigned int FragTrap::getDefaultAttackDamage(void) {
 }
 
 std::ostream& operator<<(std::ostream& o, const FragTrap& st) {
-    std::cout
+    o
         << "FRAGTRAP - Name: " << st.getName()
         << ", HitPoints: " << st.getHitPoints()
         << ", EnergyPoints: " << st.getEnergyPoints()

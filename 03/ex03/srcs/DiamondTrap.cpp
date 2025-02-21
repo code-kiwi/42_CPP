@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 02:06:10 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/19 11:34:41 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/02/21 08:24:53 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ const std::string& DiamondTrap::getName(void) const {
 }
 
 std::ostream& operator<<(std::ostream& o, const DiamondTrap& dt) {
-    std::cout
+    o
         << "DIAMONDTRAP - Name: " << dt.getName()
         << ", HitPoints: " << dt.getHitPoints()
         << ", EnergyPoints: " << dt.getEnergyPoints()

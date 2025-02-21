@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 20:11:46 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/20 23:00:23 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/02/21 08:27:54 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ void WrongCat::makeSound(void) const {
 }
 
 std::ostream& operator<<(std::ostream& o, const WrongCat& wrongCat) {
-    std::cout << "WrongCat of type: " << wrongCat.getType();
+    o << "WrongCat of type: " << wrongCat.getType();
     return o;
 }

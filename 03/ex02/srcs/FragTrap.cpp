@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 10:58:54 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/19 11:41:56 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/02/21 08:23:59 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void FragTrap::highFivesGuys(void) {
 }
 
 std::ostream& operator<<(std::ostream& o, const FragTrap& st) {
-    std::cout
+    o
         << "FRAGTRAP - Name: " << st.getName()
         << ", HitPoints: " << st.getHitPoints()
         << ", EnergyPoints: " << st.getEnergyPoints()

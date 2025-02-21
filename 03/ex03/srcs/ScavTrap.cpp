@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 10:58:54 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/19 10:57:29 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/02/21 08:25:12 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ unsigned int ScavTrap::getDefaultAttackDamage(void) {
 }
 
 std::ostream& operator<<(std::ostream& o, const ScavTrap& st) {
-    std::cout
+    o
         << "SCAVTRAP - Name: " << st.getName()
         << ", HitPoints: " << st.getHitPoints()
         << ", EnergyPoints: " << st.getEnergyPoints()

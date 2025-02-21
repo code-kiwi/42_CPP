@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 22:30:59 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/19 10:47:23 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/02/21 08:24:45 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ unsigned int ClapTrap::getDefaultAttackDamage(void) {
 }
 
 std::ostream& operator<<(std::ostream& o, const ClapTrap& ct) {
-    std::cout
+    o
         << "CLAPTRAP - Name: " << ct.getName()
         << ", HitPoints: " << ct.getHitPoints()
         << ", EnergyPoints: " << ct.getEnergyPoints()

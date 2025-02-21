@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 20:11:46 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/21 01:44:36 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/02/21 08:28:20 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ Brain* Dog::getBrain(void) const {
 }
 
 std::ostream& operator<<(std::ostream& o, const Dog& dog) {
-    std::cout << "Dog of type: " << dog.getType();
+    o << "Dog of type: " << dog.getType();
     return o;
 }
