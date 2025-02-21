@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 13:04:39 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/20 23:12:13 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/02/21 01:52:27 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int main(void) {
         delete cat;
         delete dog;
     }
+    
     std::cout << std::endl;
     std::cout << "--------------------------------------------------" << std::endl;
     std::cout << std::endl;
