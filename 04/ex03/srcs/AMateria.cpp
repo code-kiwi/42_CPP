@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 04:46:42 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/21 05:06:20 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/02/21 09:17:14 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,8 @@ AMateria& AMateria::operator=(const AMateria& otherAMateria) {
 
 const std::string& AMateria::getType() const {
     return this->_type;
+}
+
+void AMateria::use(ICharacter& target) {
+    std::cout << "AMateria calls use on " << target.getName() << " but it is useless..." << std::endl;
 }

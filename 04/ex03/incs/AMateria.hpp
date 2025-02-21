@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 04:46:39 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/21 08:00:39 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/02/21 09:15:34 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class AMateria {
 
         const std::string& getType() const;
         virtual AMateria* clone() const = 0;
-        virtual void use(ICharacter& target) = 0;
+        virtual void use(ICharacter& target);
 };
 
 #endif

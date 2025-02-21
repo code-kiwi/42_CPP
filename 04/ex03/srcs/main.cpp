@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 04:28:27 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/21 09:14:01 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/02/21 09:17:48 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ int main(void) {
 
         std::cout << std::endl;
         char1->use(0, *char2);
+        char2->use(2, *char1);
         char1->use(3, *char2);
         char1->use(10, *char2);
         char3->use(2, *char1);
