@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 15:12:20 by mhotting          #+#    #+#             */
-/*   Updated: 2025/04/03 18:51:46 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/04/04 01:35:57 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 
 class Bureaucrat {
     private:
+        static const unsigned int MAX_GRADE = 1;
+        static const unsigned int MIN_GRADE = 150;
         const std::string _name;
         unsigned int _grade;
 
