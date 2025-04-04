@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 15:12:20 by mhotting          #+#    #+#             */
-/*   Updated: 2025/04/04 17:52:44 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/04/04 20:35:01 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #define BUREAUCRAT_HPP
 
 #include <string>
-#include <exception>
 #include <iostream>
 
 class Bureaucrat {
