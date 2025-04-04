@@ -6,18 +6,18 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 18:08:00 by mhotting          #+#    #+#             */
-/*   Updated: 2025/04/04 01:35:53 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/04/04 17:00:29 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 const char* Bureaucrat::GradeTooLowException::what(void) const throw() {
-    return "The grade cannot be that low";
+    return "ERROR: The grade cannot be that low.";
 }
 
 const char* Bureaucrat::GradeTooHighException::what(void) const throw() {
-    return "The grade cannot be that high";
+    return "ERROR: The grade cannot be that high.";
 }
 
 Bureaucrat::Bureaucrat(void): _name("Undefined"), _grade(Bureaucrat::MIN_GRADE) {
@@ -43,7 +43,11 @@ Bureaucrat::~Bureaucrat(void) {
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& otherBureaucrat) {
-
+    std::cout << "Bureaucrat assignment operator called." << std::endl;
+    if (this != &otherBureaucrat) {
+        this->_grade = otherBureaucrat._grade;
+    }
+    return *this;
 }
 
 const std::string Bureaucrat::getName(void) const {
@@ -69,6 +73,11 @@ void Bureaucrat::decrementGrade(void) {
 }
 
 std::ostream& operator<<(std::ostream& o, const Bureaucrat& bureaucrat) {
-    
+    o 
+        << bureaucrat.getName()
+        << ", bureaucrat grade "
+        << bureaucrat.getgrade()
+        << ".";
+    return o;
 }
 
