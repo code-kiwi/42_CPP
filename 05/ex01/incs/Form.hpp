@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 20:41:52 by mhotting          #+#    #+#             */
-/*   Updated: 2025/04/04 21:55:46 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/04/10 17:35:39 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form {
     private:
         static const unsigned int MAX_GRADE = 1;
@@ -28,7 +30,18 @@ class Form {
         const unsigned int _execGrade;
 
         static unsigned int validateGrade(unsigned int grade);
+        
     public:
+        class GradeTooLowException: public std::exception {
+            public:
+                const char* what(void) const throw();
+        };
+
+        class GradeTooHighException: public std::exception {
+            public:
+                const char* what(void) const throw();
+        };
+        
         Form(void);
         Form(const std::string& name, unsigned int signGrade, unsigned int execGrade);
         Form(const Form& otherForm);

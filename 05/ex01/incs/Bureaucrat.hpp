@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 15:12:20 by mhotting          #+#    #+#             */
-/*   Updated: 2025/04/04 20:35:01 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/04/10 17:36:00 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,12 @@
 #define BUREAUCRAT_HPP
 
 #include <string>
+#include <exception>
 #include <iostream>
+
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat {
     private:
@@ -24,6 +29,16 @@ class Bureaucrat {
         unsigned int _grade;
 
     public:
+        class GradeTooLowException: public std::exception {
+            public:
+                const char* what(void) const throw();
+        };
+
+        class GradeTooHighException: public std::exception {
+            public:
+                const char* what(void) const throw();
+        };
+
         Bureaucrat(void);
         Bureaucrat(const std::string& name, const unsigned int grade);
         Bureaucrat(const Bureaucrat& otherBureaucrat);
@@ -36,6 +51,8 @@ class Bureaucrat {
 
         void incrementGrade(void);
         void decrementGrade(void);
+
+        void signForm(Form& form) const;
 };
 
 std::ostream& operator<<(std::ostream& o, const Bureaucrat& bureaucrat);

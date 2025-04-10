@@ -6,19 +6,25 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 21:13:11 by mhotting          #+#    #+#             */
-/*   Updated: 2025/04/04 22:04:14 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/04/10 17:31:02 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
-#include "GradeTooHighException.hpp"
-#include "GradeTooLowException.hpp"
+
+const char* Form::GradeTooLowException::what(void) const throw() {
+    return "ERROR Form: Grade too low";
+}
+
+const char* Form::GradeTooHighException::what(void) const throw() {
+    return "ERROR Form: Grade too high";
+}
 
 unsigned int Form::validateGrade(unsigned int grade) {
     if (grade > Form::MIN_GRADE) {
-        throw GradeTooLowException();
+        throw Form::GradeTooLowException();
     } else if (grade < Form::MAX_GRADE) {
-        throw GradeTooHighException();
+        throw Form::GradeTooHighException();
     }
     return grade;
 }
@@ -64,7 +70,10 @@ unsigned int Form::getExecGrade(void) const {
 }
 
 void Form::beSigned(const Bureaucrat& bureaucrat) {
-    
+    if (bureaucrat.getgrade() > this->_signGrade) {
+        throw Form::GradeTooLowException();
+    }
+    this->_isSigned = true;
 }
 
 std::ostream& operator<<(std::ostream& o, const Form& form) {

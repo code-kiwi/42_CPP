@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/03 15:08:29 by mhotting          #+#    #+#              #
-#    Updated: 2025/04/04 17:54:33 by mhotting         ###   ########.fr        #
+#    Updated: 2025/04/10 17:33:39 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,10 +25,9 @@ HEADERS_DIR				=	incs/
 
 # SOURCES GENERAL
 SRCS_MAIN_DIR			=	srcs/
-SRCS_FILES				=	main.cpp					\
-							Bureaucrat.cpp				\
-							GradeTooHighException.cpp	\
-							GradeTooLowException.cpp
+SRCS_FILES				=	main.cpp		\
+							Bureaucrat.cpp	\
+							Form.cpp
 SRCS					=	$(addprefix $(SRCS_MAIN_DIR), $(SRCS_FILES))
 
 # OBJECTS GENERAL
