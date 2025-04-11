@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 21:13:11 by mhotting          #+#    #+#             */
-/*   Updated: 2025/04/11 22:19:52 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/04/11 22:34:09 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ std::ostream& operator<<(std::ostream& o, const AForm& form) {
     o
         << "AForm: "
         << form.getName()
-        << ": "
+        << " - "
         << (form.getSignedStatus() ? "SIGNED" : "NOT SIGNED")
         << " - signGrade: "
         << form.getSignGrade()

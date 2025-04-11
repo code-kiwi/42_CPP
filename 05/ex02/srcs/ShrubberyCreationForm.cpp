@@ -6,13 +6,13 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 21:21:42 by mhotting          #+#    #+#             */
-/*   Updated: 2025/04/11 22:19:12 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/04/11 22:36:23 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(void): AForm() {
+ShrubberyCreationForm::ShrubberyCreationForm(void): AForm("ShrubberyCreationForm", "Undefined", ShrubberyCreationForm::DEFAULT_SIGN_GRADE, ShrubberyCreationForm::DEFAULT_EXEC_GRADE) {
     std::cout << "ShrubberyCreationForm default Constructor called." << std::endl;
 }
 
