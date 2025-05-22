@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 21:13:11 by mhotting          #+#    #+#             */
-/*   Updated: 2025/04/11 22:34:09 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/05/22 13:12:19 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,12 @@ void AForm::execute(const Bureaucrat& executor) const {
     if (executor.getgrade() > this->_execGrade) {
         throw AForm::GradeTooLowException();
     }
-    this->executeAction(executor);
+    try {
+        this->executeAction(executor);
+        std::cout << executor.getName() << " executed " << this->getName() << std::endl;
+    } catch (std::exception& e) {
+        std::cerr << "Form execution failed : " << e.what() << std::endl;
+    }
 }
 
 std::ostream& operator<<(std::ostream& o, const AForm& form) {
