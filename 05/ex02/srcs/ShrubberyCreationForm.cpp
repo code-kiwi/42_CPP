@@ -6,13 +6,13 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 21:21:42 by mhotting          #+#    #+#             */
-/*   Updated: 2025/05/22 14:31:41 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/05/22 15:22:00 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ExecutionFileHandlingException::ExecutionFileHandlingException(const std::string& filename): _message("Failed to handle file " + filename) {}
+ShrubberyCreationForm::ExecutionFileHandlingException::ExecutionFileHandlingException(const std::string& filename): _message("ERROR: Failed to handle file '" + filename + "'") {}
 
 ShrubberyCreationForm::ExecutionFileHandlingException::~ExecutionFileHandlingException() throw() {}
 

@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 15:12:20 by mhotting          #+#    #+#             */
-/*   Updated: 2025/04/11 18:05:53 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/05/22 15:10:30 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ class Bureaucrat {
         void decrementGrade(void);
 
         void signForm(AForm& form) const;
+        void executeForm(AForm const& form);
 };
 
 std::ostream& operator<<(std::ostream& o, const Bureaucrat& bureaucrat);
