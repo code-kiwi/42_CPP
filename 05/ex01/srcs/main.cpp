@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 15:08:42 by mhotting          #+#    #+#             */
-/*   Updated: 2025/04/10 17:59:55 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/05/22 11:28:56 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <exception>
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main(void) {
     /* Test0 */

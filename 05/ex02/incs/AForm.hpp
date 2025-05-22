@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 20:41:52 by mhotting          #+#    #+#             */
-/*   Updated: 2025/04/11 22:07:02 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/05/22 11:53:22 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ class AForm {
 
         static unsigned int validateGrade(unsigned int grade);
         
+    protected:
+        virtual void executeAction(const Bureaucrat& executor) const = 0;
+
     public:
         class GradeTooLowException: public std::exception {
             public:
@@ -58,8 +61,6 @@ class AForm {
 
         void beSigned(const Bureaucrat& bureaucrat);
         void execute(const Bureaucrat& executor) const;
-
-        virtual void executeAction(const Bureaucrat& executor) const = 0;
 };
 
 std::ostream& operator<<(std::ostream& o, const AForm& form);

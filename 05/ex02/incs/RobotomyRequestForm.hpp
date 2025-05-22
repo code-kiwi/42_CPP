@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 17:58:00 by mhotting          #+#    #+#             */
-/*   Updated: 2025/05/22 11:56:03 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/05/22 12:21:32 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-#define SHRUBBERYCREATIONFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+#define ROBOTOMYREQUESTFORM_HPP
 
 #include "AForm.hpp"
 
-class ShrubberyCreationForm: public AForm {
+class RobotomyRequestForm: public AForm {
     private:
-        static const unsigned int DEFAULT_SIGN_GRADE = 145;
-        static const unsigned int DEFAULT_EXEC_GRADE = 137;
+        static const unsigned int DEFAULT_SIGN_GRADE = 72;
+        static const unsigned int DEFAULT_EXEC_GRADE = 45;
         void executeAction(const Bureaucrat& executor) const;
 
     public:
-        ShrubberyCreationForm(void);
-        ShrubberyCreationForm(const std::string& target);
-        ShrubberyCreationForm(const ShrubberyCreationForm& otherForm);
-        ~ShrubberyCreationForm(void);
+        RobotomyRequestForm(void);
+        RobotomyRequestForm(const std::string& target);
+        RobotomyRequestForm(const RobotomyRequestForm& otherForm);
+        ~RobotomyRequestForm(void);
 
-        ShrubberyCreationForm& operator=(const ShrubberyCreationForm& otherForm);
+        RobotomyRequestForm& operator=(const RobotomyRequestForm& otherForm);
 };
 
 #endif

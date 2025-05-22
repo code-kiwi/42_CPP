@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/03 15:08:29 by mhotting          #+#    #+#              #
-#    Updated: 2025/04/11 22:18:44 by mhotting         ###   ########.fr        #
+#    Updated: 2025/05/22 12:28:25 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,9 @@ SRCS_MAIN_DIR			=	srcs/
 SRCS_FILES				=	main.cpp					\
 							Bureaucrat.cpp				\
 							AForm.cpp					\
-							ShrubberyCreationForm.cpp
+							ShrubberyCreationForm.cpp	\
+							RobotomyRequestForm.cpp		\
+							PresidentialPardonForm.cpp
 SRCS					=	$(addprefix $(SRCS_MAIN_DIR), $(SRCS_FILES))
 
 # OBJECTS GENERAL
