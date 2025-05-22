@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 15:08:42 by mhotting          #+#    #+#             */
-/*   Updated: 2025/04/04 16:55:25 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/05/22 10:42:22 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,16 +55,20 @@ int main(void) {
         std::cout << b3 << std::endl;
         b3.decrementGrade();
         std::cout << b3 << std::endl;
-        b3.incrementGrade();
-        b3.incrementGrade();
-        b3.incrementGrade();
-        b3.incrementGrade();
-        b3.incrementGrade();
-        b3.incrementGrade();
-        b3.incrementGrade();
-        b3.incrementGrade();
-        b3.incrementGrade();
-        b3.incrementGrade();
+        try {
+            b3.incrementGrade();
+            b3.incrementGrade();
+            b3.incrementGrade();
+            b3.incrementGrade();
+            b3.incrementGrade();
+            b3.incrementGrade();
+            b3.incrementGrade();
+            b3.incrementGrade();
+            b3.incrementGrade();
+            b3.incrementGrade();
+        } catch (std::exception& e) {
+            std::cerr << e.what() << std::endl;
+        }
         std::cout << b3 << std::endl;
     } catch (std::exception& e) {
         std::cerr << e.what() << std::endl;
@@ -76,13 +80,17 @@ int main(void) {
     try {
         Bureaucrat b4("Cindy", 3);
         std::cout << b4 << std::endl;
-        b4.incrementGrade();
-        std::cout << b4 << std::endl;
-        b4.incrementGrade();
-        std::cout << b4 << std::endl;
-        b4.incrementGrade();
-        std::cout << b4 << std::endl;
 
+        try {
+            b4.incrementGrade();
+            std::cout << b4 << std::endl;
+            b4.incrementGrade();
+            std::cout << b4 << std::endl;
+            b4.incrementGrade();
+            std::cout << b4 << std::endl;
+        } catch (std::exception& e) {
+            std::cerr << e.what() << std::endl;
+        }
     } catch (std::exception& e) {
         std::cerr << e.what() << std::endl;
     }
