@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 21:21:42 by mhotting          #+#    #+#             */
-/*   Updated: 2025/05/22 14:16:24 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/05/22 14:31:41 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
     return *this;
 }
 
-void ShrubberyCreationForm::executeAction(const Bureaucrat& executor) const {
-    std::string filename = executor.getName() + "_shrubbery";
+void ShrubberyCreationForm::executeAction(void) const {
+    std::string filename = this->getTarget() + "_shrubbery";
     std::ofstream outFile(filename.c_str());
 
     if (!outFile.is_open()) {

@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 21:13:11 by mhotting          #+#    #+#             */
-/*   Updated: 2025/05/22 13:12:19 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/05/22 14:42:06 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@ const char* AForm::GradeTooLowException::what(void) const throw() {
 
 const char* AForm::GradeTooHighException::what(void) const throw() {
     return "ERROR AForm: Grade too high";
+}
+
+const char* AForm::UnsignedFormException::what(void) const throw() {
+    return "ERROR AForm: The form has not been signed";
 }
 
 unsigned int AForm::validateGrade(unsigned int grade) {
@@ -81,11 +85,14 @@ void AForm::beSigned(const Bureaucrat& bureaucrat) {
 }
 
 void AForm::execute(const Bureaucrat& executor) const {
+    if (!this->_isSigned) {
+        throw AForm::UnsignedFormException();
+    }
     if (executor.getgrade() > this->_execGrade) {
         throw AForm::GradeTooLowException();
     }
     try {
-        this->executeAction(executor);
+        this->executeAction();
         std::cout << executor.getName() << " executed " << this->getName() << std::endl;
     } catch (std::exception& e) {
         std::cerr << "Form execution failed : " << e.what() << std::endl;

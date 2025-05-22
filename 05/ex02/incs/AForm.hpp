@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 20:41:52 by mhotting          #+#    #+#             */
-/*   Updated: 2025/05/22 13:02:06 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/05/22 14:41:03 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class AForm {
         static unsigned int validateGrade(unsigned int grade);
         
     protected:
-        virtual void executeAction(const Bureaucrat& executor) const = 0;
+        virtual void executeAction(void) const = 0;
 
     public:
         class GradeTooLowException: public std::exception {
@@ -43,6 +43,11 @@ class AForm {
         };
 
         class GradeTooHighException: public std::exception {
+            public:
+                const char* what(void) const throw();
+        };
+
+        class UnsignedFormException: public std::exception {
             public:
                 const char* what(void) const throw();
         };

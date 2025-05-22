@@ -19,7 +19,7 @@ class PresidentialPardonForm: public AForm {
     private:
         static const unsigned int DEFAULT_SIGN_GRADE = 25;
         static const unsigned int DEFAULT_EXEC_GRADE = 5;
-        void executeAction(const Bureaucrat& executor) const;
+        void executeAction(void) const;
 
     public:
         PresidentialPardonForm(void);

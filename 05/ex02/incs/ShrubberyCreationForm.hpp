@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 17:58:00 by mhotting          #+#    #+#             */
-/*   Updated: 2025/05/22 14:09:26 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/05/22 14:32:10 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class ShrubberyCreationForm: public AForm {
     private:
         static const unsigned int DEFAULT_SIGN_GRADE = 145;
         static const unsigned int DEFAULT_EXEC_GRADE = 137;
-        void executeAction(const Bureaucrat& executor) const;
+        void executeAction(void) const;
 
     public:
         class ExecutionFileHandlingException: public std::exception {

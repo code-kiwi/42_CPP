@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 15:08:42 by mhotting          #+#    #+#             */
-/*   Updated: 2025/05/22 14:10:05 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/05/22 15:01:11 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main(void) {
     /* Test0 */
     std::cout << "TEST0" << std::endl;
     try {
-        ShrubberyCreationForm s0("Home");
+        ShrubberyCreationForm s0("Home 7");
         ShrubberyCreationForm s1;
         Bureaucrat b0("Tiffany", 137);
         std::cout << std::endl;
@@ -31,6 +31,7 @@ int main(void) {
         std::cout << b0 << std::endl;
         std::cout << std::endl;
         try {
+            b0.signForm(s0);
             s0.execute(b0);
         } catch (std::exception& e) {
             std::cerr << "Form execution failed because: " << e.what() << std::endl;
@@ -41,27 +42,51 @@ int main(void) {
     }
     std::cout << "=========================" << std::endl;
 
-    // /* Test1 */
-    // std::cout << "TEST1" << std::endl;
-    // try {
-    //     RobotomyRequestForm r0("Room");
-    //     RobotomyRequestForm r1;
-    //     Bureaucrat b0("Gina", 30);
-    //     std::cout << std::endl;
-    //     std::cout << r0 << std::endl;
-    //     std::cout << r1 << std::endl;
-    //     std::cout << b0 << std::endl;
-    //     std::cout << std::endl;
-    //     try {
-    //         r0.execute(b0);
-    //     } catch (std::exception& e) {
-    //         std::cerr << "Form execution failed because: " << e.what() << std::endl;
-    //     }
-    //     std::cout << std::endl;
-    // } catch (std::exception& e) {
-    //     std::cerr << e.what() << std::endl;
-    // }
-    // std::cout << "=========================" << std::endl;
+    /* Test1 */
+    std::cout << "TEST1" << std::endl;
+    try {
+        RobotomyRequestForm r0("Room");
+        RobotomyRequestForm r1;
+        Bureaucrat b0("Gina", 30);
+        std::cout << std::endl;
+        std::cout << r0 << std::endl;
+        std::cout << r1 << std::endl;
+        std::cout << b0 << std::endl;
+        std::cout << std::endl;
+        try {
+            b0.signForm(r0);
+            r0.execute(b0);
+        } catch (std::exception& e) {
+            std::cerr << "Form execution failed because: " << e.what() << std::endl;
+        }
+        std::cout << std::endl;
+    } catch (std::exception& e) {
+        std::cerr << e.what() << std::endl;
+    }
+    std::cout << "=========================" << std::endl;
+
+    /* Test2 */
+    std::cout << "TEST2" << std::endl;
+    try {
+        PresidentialPardonForm p0("Bugs Bunny");
+        PresidentialPardonForm p1;
+        Bureaucrat b0("Jake", 5);
+        std::cout << std::endl;
+        std::cout << p0 << std::endl;
+        std::cout << p1 << std::endl;
+        std::cout << b0 << std::endl;
+        std::cout << std::endl;
+        try {
+            b0.signForm(p0);
+            p0.execute(b0);
+        } catch (std::exception& e) {
+            std::cerr << "Form execution failed because: " << e.what() << std::endl;
+        }
+        std::cout << std::endl;
+    } catch (std::exception& e) {
+        std::cerr << e.what() << std::endl;
+    }
+    std::cout << "=========================" << std::endl;
 
     return 0;
 }
