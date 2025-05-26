@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 15:08:42 by mhotting          #+#    #+#             */
-/*   Updated: 2025/05/22 10:42:22 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/05/26 23:01:53 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main(void) {
         Bureaucrat b0("Bob", 150);
         std::cout << b0 << std::endl;
     } catch (std::exception& e) {
-        std::cerr << e.what() << std::endl;
+        std::cout << e.what() << std::endl;
     }
     std::cout << "=========================" << std::endl;
 
@@ -32,7 +32,7 @@ int main(void) {
         Bureaucrat b1("John", 0);
         std::cout << b1 << std::endl;
     } catch (std::exception& e) {
-        std::cerr << e.what() << std::endl;
+        std::cout << e.what() << std::endl;
     }
     std::cout << "=========================" << std::endl;
 
@@ -42,7 +42,7 @@ int main(void) {
         Bureaucrat b2("Danny", 155);
         std::cout << b2 << std::endl;
     } catch (std::exception& e) {
-        std::cerr << e.what() << std::endl;
+        std::cout << e.what() << std::endl;
     }
     std::cout << "=========================" << std::endl;
 
@@ -67,11 +67,11 @@ int main(void) {
             b3.incrementGrade();
             b3.incrementGrade();
         } catch (std::exception& e) {
-            std::cerr << e.what() << std::endl;
+            std::cout << e.what() << std::endl;
         }
         std::cout << b3 << std::endl;
     } catch (std::exception& e) {
-        std::cerr << e.what() << std::endl;
+        std::cout << e.what() << std::endl;
     }
     std::cout << "=========================" << std::endl;
 
@@ -89,10 +89,10 @@ int main(void) {
             b4.incrementGrade();
             std::cout << b4 << std::endl;
         } catch (std::exception& e) {
-            std::cerr << e.what() << std::endl;
+            std::cout << e.what() << std::endl;
         }
     } catch (std::exception& e) {
-        std::cerr << e.what() << std::endl;
+        std::cout << e.what() << std::endl;
     }
     std::cout << "=========================" << std::endl;
 

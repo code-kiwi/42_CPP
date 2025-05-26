@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 19:43:34 by codekiwi          #+#    #+#             */
-/*   Updated: 2025/01/23 17:45:29 by codekiwi         ###   ########.fr       */
+/*   Updated: 2025/05/26 23:01:53 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,19 @@ void searchPhoneBook(const PhoneBook &book) {
             return ;
         }
         if (strIndex.empty()) {
-            std::cerr << "ERROR: The index cannot be empty" << std::endl;
+            std::cout << "ERROR: The index cannot be empty" << std::endl;
             error = true;
             continue ;
         }
         std::istringstream iss(strIndex);
         iss >> index;
         if (iss.fail() || !iss.eof()) {
-            std::cerr << "ERROR: Your index is not valid" << std::endl;
+            std::cout << "ERROR: Your index is not valid" << std::endl;
             error = true;
             continue ;
         }
         else if (index < 0 || index >= (int) book.getLength()) {
-            std::cerr << "ERROR: Index is between 0 and " << (int) (book.getLength() - 1) << std::endl;
+            std::cout << "ERROR: Index is between 0 and " << (int) (book.getLength() - 1) << std::endl;
             error = true;
             continue ;
         }
@@ -76,7 +76,7 @@ int main(void) {
         std::cout << std::endl;
 
         if (std::cin.eof() || std::cin.fail()) {
-            std::cerr << "ERROR: The phoneBook app crashed..." << std::endl;
+            std::cout << "ERROR: The phoneBook app crashed..." << std::endl;
             break;
         }
     }

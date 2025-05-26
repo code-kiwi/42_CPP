@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codekiwi <codekiwi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 00:38:46 by codekiwi          #+#    #+#             */
-/*   Updated: 2024/09/21 00:47:13 by codekiwi         ###   ########.fr       */
+/*   Updated: 2025/05/26 23:01:53 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(void) {
 	unsigned int	dst2;
 
 	if (!ifs.is_open()) {
-		std::cerr << "ERROR: impossible to open the 'numbers' file" << std::endl;
+		std::cout << "ERROR: impossible to open the 'numbers' file" << std::endl;
 		return (1);
 	}
 	ifs >> dst >> dst2;

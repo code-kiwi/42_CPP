@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 15:08:42 by mhotting          #+#    #+#             */
-/*   Updated: 2025/05/22 11:28:56 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/05/26 23:01:53 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main(void) {
         Form f0("Politics", 10, 10);
         std::cout << f0 << std::endl;
     } catch (std::exception& e) {
-        std::cerr << e.what() << std::endl;
+        std::cout << e.what() << std::endl;
     }
     std::cout << "=========================" << std::endl;
 
@@ -33,7 +33,7 @@ int main(void) {
         Form f1("Politics", 151, 10);
         std::cout << f1 << std::endl;
     } catch (std::exception& e) {
-        std::cerr << e.what() << std::endl;
+        std::cout << e.what() << std::endl;
     }
     std::cout << "=========================" << std::endl;
 
@@ -43,7 +43,7 @@ int main(void) {
         Form f2("Politics", 150, 151);
         std::cout << f2 << std::endl;
     } catch (std::exception& e) {
-        std::cerr << e.what() << std::endl;
+        std::cout << e.what() << std::endl;
     }
     std::cout << "=========================" << std::endl;
 
@@ -53,7 +53,7 @@ int main(void) {
         Form f3("Politics", 0, 150);
         std::cout << f3 << std::endl;
     } catch (std::exception& e) {
-        std::cerr << e.what() << std::endl;
+        std::cout << e.what() << std::endl;
     }
     std::cout << "=========================" << std::endl;
 
@@ -63,7 +63,7 @@ int main(void) {
         Form f4("Politics", 150, 0);
         std::cout << f4 << std::endl;
     } catch (std::exception& e) {
-        std::cerr << e.what() << std::endl;
+        std::cout << e.what() << std::endl;
     }
     std::cout << "=========================" << std::endl;
 
@@ -88,7 +88,7 @@ int main(void) {
         std::cout << f5 << std::endl;
         std::cout << std::endl;
     } catch (std::exception& e) {
-        std::cerr << e.what() << std::endl;
+        std::cout << e.what() << std::endl;
     }
     std::cout << "=========================" << std::endl;
 
@@ -114,7 +114,7 @@ int main(void) {
         std::cout << f6 << std::endl;
         std::cout << std::endl;
     } catch (std::exception& e) {
-        std::cerr << e.what() << std::endl;
+        std::cout << e.what() << std::endl;
     }
     std::cout << "=========================" << std::endl;
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 08:05:17 by mhotting          #+#    #+#             */
-/*   Updated: 2025/02/04 11:11:24 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/05/26 23:01:53 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ bool openFiles(
 ) {
     infile.open(infileName.c_str());
     if (!infile.is_open()) {
-        std::cerr << "Error: " << infileName << " could not be opened" << std::endl;
+        std::cout << "Error: " << infileName << " could not be opened" << std::endl;
         return false;
     }
     outfile.open(outfileName.c_str());
     if (!outfile.is_open()) {
         infile.close();
-        std::cerr << "Error: " << outfileName << " could not be created" << std::endl;
+        std::cout << "Error: " << outfileName << " could not be created" << std::endl;
         return false;
     }
     return true;
@@ -69,7 +69,7 @@ int main(int argc, char **argv) {
     std::ofstream outfile;
 
     if (argc != 4) {
-        std::cerr << "Usage: sed <filename> <toReplace> <replaceWith>" << std::endl;
+        std::cout << "Usage: sed <filename> <toReplace> <replaceWith>" << std::endl;
         exit(EXIT_FAILURE);
     }
     infileName = argv[1];

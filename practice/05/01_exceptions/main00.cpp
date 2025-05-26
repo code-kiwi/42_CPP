@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 18:34:27 by mhotting          #+#    #+#             */
-/*   Updated: 2025/03/20 19:03:31 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/05/26 23:01:53 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void test1(int num) {
             std::cout << "It is positive" << std::endl;
         }
     } catch (std::exception e) {
-        std::cerr << "ERROR: It is negative" << std::endl;
+        std::cout << "ERROR: It is negative" << std::endl;
     }
 }
 
@@ -39,7 +39,7 @@ void test3(int num) {
     try {
         test2(num);
     } catch (std::exception& e) {
-        std::cerr << "ERROR: It is negative" << std::endl;
+        std::cout << "ERROR: It is negative" << std::endl;
     }
 }
 
@@ -54,9 +54,9 @@ void test4(int num) {
     try {
         test3(num);
     } catch (PEBKACException& e) {
-        std::cerr << "The user is an idiot" << std::endl;
+        std::cout << "The user is an idiot" << std::endl;
     } catch (std::exception& e) {
-        std::cerr << "ERROR: It is negative" << std::endl;
+        std::cout << "ERROR: It is negative" << std::endl;
     }
 }
 

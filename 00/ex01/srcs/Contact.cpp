@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhotting <mhotting@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 19:43:31 by codekiwi          #+#    #+#             */
-/*   Updated: 2025/01/24 09:03:21 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/05/26 23:01:35 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ std::string Contact::fieldInput(std::string const &prompt) {
             return "";
         }
         if (str.empty()) {
-            std::cerr << "\tERROR: Field cannot be empty" << std::endl;
+            std::cout << "\tERROR: Field cannot be empty" << std::endl;
         }
     } while ((str.empty() && !(std::cin.eof() || std::cin.fail())));
     return str;

@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 18:08:00 by mhotting          #+#    #+#             */
-/*   Updated: 2025/04/10 17:51:46 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/05/26 23:01:53 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void Bureaucrat::decrementGrade(void) {
 
 void Bureaucrat::signForm(Form& form) const {
     if (form.getSignedStatus()) {
-        std::cerr
+        std::cout
             << this->_name
             << " couldn’t sign "
             << form.getName()
@@ -90,7 +90,7 @@ void Bureaucrat::signForm(Form& form) const {
             << form.getName()
             << std::endl;
     } catch (std::exception& e) {
-        std::cerr
+        std::cout
             << this->_name
             << " couldn’t sign "
             << form.getName()

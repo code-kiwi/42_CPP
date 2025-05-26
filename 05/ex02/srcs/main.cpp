@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 15:08:42 by mhotting          #+#    #+#             */
-/*   Updated: 2025/05/23 20:45:33 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/05/26 23:01:53 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ int main(void) {
             b0.signForm(s0);
             b0.executeForm(s0);
         } catch (std::exception& e) {
-            std::cerr << "Form sign/execution failed because: " << e.what() << std::endl;
+            std::cout << "Form sign/execution failed because: " << e.what() << std::endl;
         }
         std::cout << std::endl;
     } catch (std::exception& e) {
-        std::cerr << e.what() << std::endl;
+        std::cout << e.what() << std::endl;
     }
     std::cout << "=========================" << std::endl;
 
@@ -58,11 +58,11 @@ int main(void) {
             b0.signForm(r0);
             b0.executeForm(r0);
         } catch (std::exception& e) {
-            std::cerr << "Form sign/execution failed because: " << e.what() << std::endl;
+            std::cout << "Form sign/execution failed because: " << e.what() << std::endl;
         }
         std::cout << std::endl;
     } catch (std::exception& e) {
-        std::cerr << e.what() << std::endl;
+        std::cout << e.what() << std::endl;
     }
     std::cout << "=========================" << std::endl;
 
@@ -81,11 +81,11 @@ int main(void) {
             b0.signForm(p0);
             b0.executeForm(p0);
         } catch (std::exception& e) {
-            std::cerr << "Form sign/execution failed because: " << e.what() << std::endl;
+            std::cout << "Form sign/execution failed because: " << e.what() << std::endl;
         }
         std::cout << std::endl;
     } catch (std::exception& e) {
-        std::cerr << e.what() << std::endl;
+        std::cout << e.what() << std::endl;
     }
     std::cout << "=========================" << std::endl;
 
