@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 20:41:52 by mhotting          #+#    #+#             */
-/*   Updated: 2025/04/10 17:35:39 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:03:34 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ class Form {
 
         Form& operator=(const Form& otherForm);
 
-        const std::string getName(void) const;
+        const std::string& getName(void) const;
         bool getSignedStatus(void) const;
         unsigned int getSignGrade(void) const;
         unsigned int getExecGrade(void) const;

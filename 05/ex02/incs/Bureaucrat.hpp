@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 15:12:20 by mhotting          #+#    #+#             */
-/*   Updated: 2025/05/22 15:10:30 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:04:52 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ class Bureaucrat {
 
         Bureaucrat& operator=(const Bureaucrat& otherBureaucrat);
 
-        const std::string getName(void) const;
+        const std::string& getName(void) const;
         unsigned int getgrade(void) const;
 
         void incrementGrade(void);

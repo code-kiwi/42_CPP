@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 18:08:00 by mhotting          #+#    #+#             */
-/*   Updated: 2025/05/26 23:01:53 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:03:24 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& otherBureaucrat) {
     return *this;
 }
 
-const std::string Bureaucrat::getName(void) const {
+const std::string& Bureaucrat::getName(void) const {
     return this->_name;
 }
 

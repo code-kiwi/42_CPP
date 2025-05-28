@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 21:13:11 by mhotting          #+#    #+#             */
-/*   Updated: 2025/05/22 15:17:28 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/05/28 14:59:37 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,11 @@ AForm& AForm::operator=(const AForm& otherAForm) {
     return *this;
 }
 
-const std::string AForm::getName(void) const {
+const std::string& AForm::getName(void) const {
     return this->_name;
 }
 
-const std::string AForm::getTarget(void) const {
+const std::string& AForm::getTarget(void) const {
     return this->_target;
 }
 
