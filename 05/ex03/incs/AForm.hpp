@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 20:41:52 by mhotting          #+#    #+#             */
-/*   Updated: 2025/05/22 14:41:03 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/05/28 02:17:34 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ class AForm {
         AForm(void);
         AForm(const std::string& name, const std::string& target, unsigned int signGrade, unsigned int execGrade);
         AForm(const AForm& otherAForm);
-        ~AForm(void);
+        virtual ~AForm(void);
 
         AForm& operator=(const AForm& otherAForm);
 

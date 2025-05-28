@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 22:56:59 by mhotting          #+#    #+#             */
-/*   Updated: 2025/05/27 20:46:09 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/05/28 02:06:10 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,16 @@ Intern& Intern::operator=(const Intern& otherIntern) {
 
 AForm* Intern::makeForm(const std::string& name, const std::string& target) const {
     size_t arraySize = sizeof(Intern::_formNames) / sizeof(Intern::_formNames[0]);
-    (void) name;
-    (void) target;
-    std::cout << "Size: " << arraySize << std::endl;
-    return 0;
+    size_t index;
+
+    for (index = 0; index < arraySize; index++) {
+        if (name == Intern::_formNames[index]) {
+            break;
+        }
+    }
+    if (index >= arraySize) {
+        std::cout << "ERROR: Unknown form name \"" << name << "\"" << std::endl;
+        return 0;
+    }
+    return Intern::_formCreators[index](target);
 }
