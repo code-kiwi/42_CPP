@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 22:56:59 by mhotting          #+#    #+#             */
-/*   Updated: 2025/05/28 02:06:10 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/05/28 02:23:55 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ AForm* Intern::makeForm(const std::string& name, const std::string& target) cons
             break;
         }
     }
-    if (index >= arraySize) {
+    if (index == arraySize) {
         std::cout << "ERROR: Unknown form name \"" << name << "\"" << std::endl;
         return 0;
     }
