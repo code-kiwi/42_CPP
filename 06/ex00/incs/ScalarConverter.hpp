@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/03 15:08:42 by mhotting          #+#    #+#             */
-/*   Updated: 2025/05/29 23:57:58 by mhotting         ###   ########.fr       */
+/*   Created: 2025/05/29 23:48:24 by mhotting          #+#    #+#             */
+/*   Updated: 2025/05/29 23:54:11 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SCALARCONVERTER_HPP
+#define SCALARCONVERTER_HPP
+
 #include <iostream>
 
-#include "ScalarConverter.hpp"
+class ScalarConverter {
+    private:
+        ScalarConverter(void);
+        ScalarConverter(const ScalarConverter&);
+        ScalarConverter& operator=(const ScalarConverter&);
+    public:
+        ~ScalarConverter(void);
 
-int main(int argc, char **argv) {
-    if (argc != 2) {
-        std::cout << "Usage: ./cast00 stringToConvert" << std::endl;
-        return 0;
-    }
-    std::cout << argv[1] << std::endl;
-    ScalarConverter::convert(argv[1]);
-    return 0;
-}
+        static void convert(const std::string& toConvert);
+};
+
+#endif

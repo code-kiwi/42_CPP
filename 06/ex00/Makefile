@@ -6,7 +6,7 @@
 #    By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/03 15:08:29 by mhotting          #+#    #+#              #
-#    Updated: 2025/05/29 23:20:11 by mhotting         ###   ########.fr        #
+#    Updated: 2025/05/29 23:57:00 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ HEADERS_DIR				=	incs/
 
 # SOURCES GENERAL
 SRCS_MAIN_DIR			=	srcs/
-SRCS_FILES				=	main.cpp
+SRCS_FILES				=	main.cpp			\
+							ScalarConverter.cpp
 SRCS					=	$(addprefix $(SRCS_MAIN_DIR), $(SRCS_FILES))
 
 # OBJECTS GENERAL
