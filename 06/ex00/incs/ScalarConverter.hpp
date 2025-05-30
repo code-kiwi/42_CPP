@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 23:48:24 by mhotting          #+#    #+#             */
-/*   Updated: 2025/05/29 23:54:11 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/05/30 11:27:23 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ class ScalarConverter {
         ScalarConverter(void);
         ScalarConverter(const ScalarConverter&);
         ScalarConverter& operator=(const ScalarConverter&);
+
+        static void _printAsChar(const char c);
+        static void _printAsInt(const double nb);
+        static void _printAsFloat(const double nb);
+        static void _printAsDouble(const double nb);
     public:
         ~ScalarConverter(void);
 
