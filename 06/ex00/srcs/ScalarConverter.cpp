@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 23:54:22 by mhotting          #+#    #+#             */
-/*   Updated: 2025/06/03 13:44:42 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/06/03 13:52:05 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void ScalarConverter::convert(const std::string& toConvert) {
     double nb = 0;
 
     // Checks if there is only one char to convert
-    if (toConvert.length() == 1 && !std::isdigit(toConvert[0])) {
+    if (toConvert.length() == 1 && !std::isdigit(static_cast<int>(toConvert[0]))) {
         isChar = true;
         nb = static_cast<char>(toConvert[0]);
         isValidNumber = false;
