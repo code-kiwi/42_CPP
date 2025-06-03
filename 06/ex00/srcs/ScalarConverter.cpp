@@ -6,13 +6,16 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 23:54:22 by mhotting          #+#    #+#             */
-/*   Updated: 2025/06/02 16:23:48 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/06/03 13:44:42 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <iomanip>
 #include <cstdlib>
 #include <cmath>
+#include <limits>
+#include <cerrno>
 
 #include "ScalarConverter.hpp"
 
@@ -35,21 +38,17 @@ void ScalarConverter::convert(const std::string& toConvert) {
     // Checks if there is only one char to convert
     if (toConvert.length() == 1 && !std::isdigit(toConvert[0])) {
         isChar = true;
-    }
-    
-    nb = strtod(toConvert.c_str(), &ptrToConvert);
-    // Checks if the input is not a valid number
-    if (isChar || toConvert.length() == 0 || (*ptrToConvert != 0 && (*ptrToConvert != 'f' || *(ptrToConvert + 1) != 0))) {
+        nb = static_cast<char>(toConvert[0]);
         isValidNumber = false;
+    } else {
+        errno = 0;
+        nb = strtod(toConvert.c_str(), &ptrToConvert);
+        // Checks if the input is not a valid number
+        if (errno != 0 || toConvert.length() == 0 || (*ptrToConvert != 0 && (*ptrToConvert != 'f' || *(ptrToConvert + 1) != 0))) {
+            isValidNumber = false;
+        }
     }
 
-    // std::cout << "isChar: " << isChar << std::endl;
-    // std::cout << "isNumber: " << isValidNumber << std::endl;
-    // std::cout << "Static Method, to convert: " << toConvert << std::endl;
-    // std::cout << "nb: " << nb << std::endl;
-    // std::cout << "STR: \"" << ptrToConvert << "\"" << std::endl;
-    // std::cout << "Is Inf: " << std::isinf(nb) << std::endl;
-    // std::cout << "Is Nan: " << std::isnan(nb) << std::endl;
     ScalarConverter::_printAsChar(nb, isChar, isValidNumber);
     ScalarConverter::_printAsInt(nb, isValidNumber);
     ScalarConverter::_printAsFloat(nb, isValidNumber);
@@ -57,34 +56,42 @@ void ScalarConverter::convert(const std::string& toConvert) {
 }
 
 void ScalarConverter::_printAsChar(const double nb, const bool isChar, const bool isValidNumber) {
-    (void) nb;
-    (void) isChar;
-    (void) isValidNumber;
     std::cout << "char: ";
-
-    std::cout << std::endl;
+    if ((!isChar && !isValidNumber) || std::isnan(nb) || nb < std::numeric_limits<char>::min() || nb > std::numeric_limits<char>::max()) {
+        std::cout << "impossible" << std::endl;
+        return;
+    }
+    char c = static_cast<char>(nb);
+    if (!std::isprint(c)) {
+        std::cout << "Non displayable" << std::endl;
+        return;
+    }
+    std::cout << c << std::endl;
 }
 
 void ScalarConverter::_printAsInt(const double nb, const bool isValidNumber) {
-    (void) nb;
-    (void) isValidNumber;
     std::cout << "int: ";
-
-    std::cout << std::endl;
+    if (!isValidNumber || std::isnan(nb) || nb < std::numeric_limits<int>::min() || nb > std::numeric_limits<int>::max()) {
+        std::cout << "impossible" << std::endl;
+        return;
+    }
+    std::cout << static_cast<int>(nb) << std::endl;
 }
 
 void ScalarConverter::_printAsFloat(const double nb, const bool isValidNumber) {
-    (void) nb;
-    (void) isValidNumber;
     std::cout << "float: ";
-
-    std::cout << std::endl;
+    if (!isValidNumber || (!std::isinf(nb) && (nb < -std::numeric_limits<float>::max() || nb > std::numeric_limits<float>::max()))) {
+        std::cout << "impossible" << std::endl;
+        return;
+    }
+    std::cout << std::fixed << std::setprecision(1) << static_cast<float>(nb) << 'f' << std::endl;
 }
 
 void ScalarConverter::_printAsDouble(const double nb, const bool isValidNumber) {
-    (void) nb;
-    (void) isValidNumber;
     std::cout << "double: ";
-
-    std::cout << std::endl;
+    if (!isValidNumber) {
+        std::cout << "impossible" << std::endl;
+        return;
+    }
+    std::cout << std::fixed << std::setprecision(1) << nb << std::endl;
 }
