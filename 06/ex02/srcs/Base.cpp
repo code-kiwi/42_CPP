@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 15:26:35 by mhotting          #+#    #+#             */
-/*   Updated: 2025/06/29 15:35:17 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/06/30 09:43:15 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,4 @@
 
 #include "Base.hpp"
 
-Base::~Base(void) {
-    std::cout << "Test desctruction" << std::endl;
-}
+Base::~Base(void) {}

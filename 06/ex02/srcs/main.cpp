@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 15:08:42 by mhotting          #+#    #+#             */
-/*   Updated: 2025/06/29 23:10:32 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/06/30 12:22:40 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,11 @@ void identify(Base* p) {
 
     if (p == NULL) {
         std::cout << "NULL pointer";
-    } else if (dynamic_cast<A*>(p)) {
+    } else if (dynamic_cast<A*>(p) != NULL) {
         std::cout << "A pointer";
-    } else if (dynamic_cast<B*>(p)) {
+    } else if (dynamic_cast<B*>(p) != NULL) {
         std::cout << "B pointer";
-    } else if (dynamic_cast<C*>(p)) {
+    } else if (dynamic_cast<C*>(p) != NULL) {
         std::cout << "C pointer";
     } else {
         std::cout << "Unknown pointer";
@@ -71,22 +71,22 @@ void identify(Base& p) {
     std::cout << "Identification reference: ";
 
     try {
-        dynamic_cast<A&>(p);
+        A a = dynamic_cast<A&>(p);
         std::cout << "A reference" << std::endl;
         return ;
-    } catch (...) {}
+    } catch (const std::exception& e) {}
 
     try {
-        dynamic_cast<B&>(p);
+        B b = dynamic_cast<B&>(p);
         std::cout << "B reference" << std::endl;
         return ;
-    } catch (...) {}
+    } catch (const std::exception& e) {}
 
     try {
-        dynamic_cast<C&>(p);
+        C c = dynamic_cast<C&>(p);
         std::cout << "C reference" << std::endl;
         return ;
-    } catch (...) {}
+    } catch (const std::exception& e) {}
 
-    std::cout << "Unknown reference";
+    std::cout << "Unknown reference" << std::endl;
 }
