@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 15:08:42 by mhotting          #+#    #+#             */
-/*   Updated: 2025/06/28 01:53:48 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/06/30 12:47:49 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,11 @@ int main(void) {
     ptrInt = Serializer::serialize(d1Ptr);
     std::cout << "d1Ptr serialized: " << ptrInt << std::endl;
     restored = Serializer::deserialize(ptrInt);
-    std::cout << "d1 deserialized: " << *restored << std::endl;
+    if (restored == 0) {
+        std::cout << "d1 deserialized: NULL" << std::endl;
+    } else {
+        std::cout << "d1 deserialized: " << *restored << std::endl;
+    }
     std::cout << std::endl;
 
     d2Ptr = &d2;
@@ -45,7 +49,11 @@ int main(void) {
     ptrInt = Serializer::serialize(d2Ptr);
     std::cout << "d2Ptr serialized: " << ptrInt << std::endl;
     restored = Serializer::deserialize(ptrInt);
-    std::cout << "d2 deserialized: " << *restored << std::endl;
+    if (restored == 0) {
+        std::cout << "d2 deserialized: NULL" << std::endl;
+    } else {
+        std::cout << "d2 deserialized: " << *restored << std::endl;
+    }
     std::cout << std::endl;
 
     d3Ptr = &d3;
@@ -53,7 +61,11 @@ int main(void) {
     ptrInt = Serializer::serialize(d3Ptr);
     std::cout << "d3Ptr serialized: " << ptrInt << std::endl;
     restored = Serializer::deserialize(ptrInt);
-    std::cout << "d3 deserialized: " << *restored << std::endl;
+    if (restored == 0) {
+        std::cout << "d3 deserialized: NULL" << std::endl;
+    } else {
+        std::cout << "d3 deserialized: " << *restored << std::endl;
+    }
     std::cout << std::endl;
 
     d0Ptr = 0;
