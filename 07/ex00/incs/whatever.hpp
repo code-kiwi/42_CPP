@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 14:27:23 by mhotting          #+#    #+#             */
-/*   Updated: 2025/08/15 14:41:08 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/08/15 23:15:37 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 template<typename T>
 void swap(T& t1, T& t2) {
-    T temp = t2;
-    t2 = t1;
-    t1 = temp;
+    T temp = t1;
+    t1 = t2;
+    t2 = temp;
 }
 
 template<typename T>
