@@ -6,14 +6,14 @@
 #    By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/15 14:17:18 by mhotting          #+#    #+#              #
-#    Updated: 2025/08/15 14:17:20 by mhotting         ###   ########.fr        #
+#    Updated: 2025/08/18 00:39:17 by mhotting         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #################################################
 # GENERAL
 
-NAME					=	template00
+NAME					=	template02
 
 CC						=	c++
 CFLAGS					=	-Wall -Werror -Wextra -std=c++98
