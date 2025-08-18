@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 00:53:22 by mhotting          #+#    #+#             */
-/*   Updated: 2025/08/18 02:03:39 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/08/18 12:57:39 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ template<typename T>
 Array<T>::Array(void) : _size(0), _content(0) {}
 
 template<typename T>
-Array<T>::Array(unsigned int n) : _size(n), _content(new T[n]) {}
+Array<T>::Array(unsigned int n) : _size(n), _content(new T[n]()) {}
 
 template<typename T>
 Array<T>::Array(const Array& otherArray)
