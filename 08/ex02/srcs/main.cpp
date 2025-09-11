@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 15:08:42 by mhotting          #+#    #+#             */
-/*   Updated: 2025/09/11 12:58:55 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/09/11 20:28:27 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,15 @@ int main(void) {
     mstack.push(737);
     //[...]
     mstack.push(0);
-    //   MutantStack<int>::iterator it = mstack.begin();
-    //   MutantStack<int>::iterator ite = mstack.end();
-    //   ++it;
-    //   --it;
-    //   while (it != ite) {
-    //     std::cout << *it << std::endl;
-    //     ++it;
-    //   }
-    //   std::stack<int> s(mstack);
+      MutantStack<int>::iterator it = mstack.begin();
+      MutantStack<int>::iterator ite = mstack.end();
+      ++it;
+      --it;
+      while (it != ite) {
+        std::cout << *it << std::endl;
+        ++it;
+      }
+      std::stack<int> s(mstack);
   }
   return 0;
 }
