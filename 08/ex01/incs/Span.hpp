@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 13:43:21 by mhotting          #+#    #+#             */
-/*   Updated: 2025/09/11 12:33:36 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/09/11 17:57:47 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 #include <iostream>
 #include <vector>
 
-class Span {
+class Span
+{
 public:
   Span(unsigned int maxSize);
   Span(const Span &otherSpan);
@@ -36,15 +37,23 @@ public:
   void addNumber(const int nb);
 
   template <typename InputIterator>
-  void addNumbers(InputIterator first, InputIterator last) {
-    if (this->size() + std::distance(first, last) > this->_maxSize) {
+  void addNumbers(InputIterator first, InputIterator last)
+  {
+    if (this->size() + std::distance(first, last) > this->_maxSize)
+    {
       throw std::length_error("The span is not large enough to store all the given numbers");
     }
     this->_content.insert(this->_content.end(), first, last);
   }
 
-  std::vector<int>::const_iterator begin() const;
-  std::vector<int>::const_iterator end() const;
+  typedef std::vector<int>::iterator iterator;
+  typedef std::vector<int>::const_iterator const_iterator;
+
+  iterator begin();
+  iterator end();
+
+  const_iterator begin() const;
+  const_iterator end() const;
 
 private:
   unsigned int _maxSize;

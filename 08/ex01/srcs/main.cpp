@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 15:08:42 by mhotting          #+#    #+#             */
-/*   Updated: 2025/09/11 12:36:05 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/09/11 17:54:35 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 
 #include "Span.hpp"
 
-int main(void) {
+int main(void)
+{
   std::srand(std::time(0));
 
   // TEST 1 : Basic tests
@@ -25,7 +26,8 @@ int main(void) {
     Span span1(10);
 
     std::cout << span1 << std::endl;
-    try {
+    try
+    {
       span1.addNumber(10);
       span1.addNumber(20);
       span1.addNumber(42);
@@ -37,19 +39,25 @@ int main(void) {
       span1.addNumber(-1456);
       span1.addNumber(-99);
       span1.addNumber(214);
-    } catch (const std::exception &e) {
+    }
+    catch (const std::exception &e)
+    {
       std::cout << e.what() << std::endl;
     }
     std::cout << span1 << std::endl;
     std::cout << "span1[5] = " << span1[5] << std::endl;
-    try {
+    try
+    {
       std::cout << "span1[15] = " << span1[15] << std::endl;
-    } catch (std::exception &e) {
+    }
+    catch (std::exception &e)
+    {
       std::cout << e.what() << std::endl;
     }
   }
 
-  std::cout << std::endl << "********************" << std::endl;
+  std::cout << std::endl
+            << "********************" << std::endl;
 
   // TEST 2 : test of copy constructor and assignment operator
   {
@@ -69,7 +77,8 @@ int main(void) {
     std::cout << span3 << std::endl;
   }
 
-  std::cout << std::endl << "********************" << std::endl;
+  std::cout << std::endl
+            << "********************" << std::endl;
 
   // TEST 3 : longestSpan
   {
@@ -91,9 +100,12 @@ int main(void) {
 
     Span span2(3);
     std::cout << span2 << std::endl;
-    try {
+    try
+    {
       std::cout << "Longest span : " << span2.longestSpan() << std::endl;
-    } catch (const std::exception &e) {
+    }
+    catch (const std::exception &e)
+    {
       std::cout << e.what() << std::endl;
     }
     std::cout << std::endl;
@@ -111,7 +123,8 @@ int main(void) {
     std::cout << "Longest span : " << span3.longestSpan() << std::endl;
   }
 
-  std::cout << std::endl << "********************" << std::endl;
+  std::cout << std::endl
+            << "********************" << std::endl;
 
   // TEST 4 : shortestSpan test
   {
@@ -132,9 +145,12 @@ int main(void) {
 
     Span span2(3);
     std::cout << span2 << std::endl;
-    try {
+    try
+    {
       std::cout << "Shortest span : " << span2.shortestSpan() << std::endl;
-    } catch (const std::exception &e) {
+    }
+    catch (const std::exception &e)
+    {
       std::cout << e.what() << std::endl;
     }
     std::cout << std::endl;
@@ -153,11 +169,32 @@ int main(void) {
     std::cout << "Shortest span : " << span3.shortestSpan() << std::endl;
   }
 
-  std::cout << std::endl << "********************" << std::endl;
+  std::cout << std::endl
+            << "********************" << std::endl;
 
-  // TEST 5 : Given test
+  // TEST 5 : Iterator tests
   {
     std::cout << "TEST5 :" << std::endl;
+    Span sp = Span(5);
+    sp.addNumber(6);
+    sp.addNumber(3);
+    sp.addNumber(17);
+    sp.addNumber(9);
+    sp.addNumber(11);
+    std::cout << "Span content : " << std::endl;
+    for (Span::iterator it = sp.begin(); it != sp.end(); it++)
+    {
+      std::cout << *it << " ";
+    }
+    std::cout << std::endl;
+  }
+
+  std::cout << std::endl
+            << "********************" << std::endl;
+
+  // TEST 6 : Given test
+  {
+    std::cout << "TEST6 :" << std::endl;
     Span sp = Span(5);
     sp.addNumber(6);
     sp.addNumber(3);
@@ -168,24 +205,29 @@ int main(void) {
     std::cout << sp.longestSpan() << std::endl;
   }
 
-  std::cout << std::endl << "********************" << std::endl;
+  std::cout << std::endl
+            << "********************" << std::endl;
 
-  // Test 6 : addNumbers
+  // Test 7 : addNumbers
   {
-    std::cout << "TEST6 :" << std::endl;
+    std::cout << "TEST7 :" << std::endl;
     size_t len = 10000;
     Span span1(len);
     std::vector<int> array(len);
 
-    for (size_t i = 0; i < len; i++) {
+    for (size_t i = 0; i < len; i++)
+    {
       array[i] = -100000 + std::rand() % 200001;
     }
-    try {
-      std::cout << "span size: " << span1.size() << std::endl << std::endl;
+    try
+    {
+      std::cout << "span size: " << span1.size() << std::endl
+                << std::endl;
       span1.addNumbers(array.begin(), array.end());
 
       // Prints the contents (first 5)
-      for (size_t i = 0; i < 5; i++) {
+      for (size_t i = 0; i < 5; i++)
+      {
         std::cout << "array[" << i << "] = " << array[i] << std::endl;
         std::cout << "span[" << i << "] = " << span1[i] << std::endl;
       }
@@ -193,7 +235,9 @@ int main(void) {
       std::cout << "span size: " << span1.size() << std::endl;
       std::cout << "Shortest span = " << span1.shortestSpan() << std::endl;
       std::cout << "Longest span  = " << span1.longestSpan() << std::endl;
-    } catch (const std::exception &e) {
+    }
+    catch (const std::exception &e)
+    {
       std::cout << "Error: " << e.what() << std::endl;
     }
   }
