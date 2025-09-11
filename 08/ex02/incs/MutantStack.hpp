@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 17:57:30 by mhotting          #+#    #+#             */
-/*   Updated: 2025/09/10 18:07:34 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/09/11 13:32:23 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,12 @@
 
 #include <stack>
 
-template <typename T>
-class MutantStack : public std::stack<T>
-{
+template <typename T> class MutantStack : public std::stack<T> {
 public:
+  MutantStack(void);
+  MutantStack(const MutantStack &other);
+  ~MutantStack(void);
+  MutantStack<T> &operator=(const MutantStack &other);
 };
 
 #endif
