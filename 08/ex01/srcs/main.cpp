@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 15:08:42 by mhotting          #+#    #+#             */
-/*   Updated: 2025/09/11 12:26:54 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/09/11 12:36:05 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,23 +173,29 @@ int main(void) {
   // Test 6 : addNumbers
   {
     std::cout << "TEST6 :" << std::endl;
-    size_t len = 10001;
+    size_t len = 10000;
     Span span1(len);
     std::vector<int> array(len);
 
     for (size_t i = 0; i < len; i++) {
-      array[i] = -10 + std::rand() % 21;
+      array[i] = -100000 + std::rand() % 200001;
     }
-    span1.addNumbers(array.begin(), array.end());
+    try {
+      std::cout << "span size: " << span1.size() << std::endl << std::endl;
+      span1.addNumbers(array.begin(), array.end());
 
-    // Prints the contents (first 10)
-    for (size_t i = 0; i < 10; i++) {
-      std::cout << "array[" << i << "] = " << array[i] << std::endl;
-      std::cout << "span[" << i << "] = " << span1[i] << std::endl;
+      // Prints the contents (first 5)
+      for (size_t i = 0; i < 5; i++) {
+        std::cout << "array[" << i << "] = " << array[i] << std::endl;
+        std::cout << "span[" << i << "] = " << span1[i] << std::endl;
+      }
+      std::cout << std::endl;
+      std::cout << "span size: " << span1.size() << std::endl;
+      std::cout << "Shortest span = " << span1.shortestSpan() << std::endl;
+      std::cout << "Longest span  = " << span1.longestSpan() << std::endl;
+    } catch (const std::exception &e) {
+      std::cout << "Error: " << e.what() << std::endl;
     }
-    std::cout << "span size: " << span1.size() << std::endl;
-    std::cout << "Shortest span = " << span1.shortestSpan() << std::endl;
-    std::cout << "Longest span  = " << span1.longestSpan() << std::endl;
   }
   return 0;
 }

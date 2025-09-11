@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 13:43:21 by mhotting          #+#    #+#             */
-/*   Updated: 2025/09/11 12:20:11 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/09/11 12:33:36 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ public:
   template <typename InputIterator>
   void addNumbers(InputIterator first, InputIterator last) {
     if (this->size() + std::distance(first, last) > this->_maxSize) {
-      throw std::length_error("The span has reached its maximum capacity");
+      throw std::length_error("The span is not large enough to store all the given numbers");
     }
     this->_content.insert(this->_content.end(), first, last);
   }
