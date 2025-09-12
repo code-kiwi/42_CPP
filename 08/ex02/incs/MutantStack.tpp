@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 18:08:13 by mhotting          #+#    #+#             */
-/*   Updated: 2025/09/11 20:24:31 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/09/12 17:20:34 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ template <typename T, typename Container>
 MutantStack<T, Container>::~MutantStack(void) {}
 
 template <typename T, typename Container>
-MutantStack<T> &MutantStack<T, Container>::operator=(const MutantStack &other) {
+MutantStack<T, Container> &MutantStack<T, Container>::operator=(const MutantStack &other) {
   if (this != &other) {
     std::stack<T, Container>::operator=(other);
   }
@@ -57,23 +57,23 @@ MutantStack<T, Container>::end(void) const {
 template <typename T, typename Container>
 typename MutantStack<T, Container>::reverse_iterator
 MutantStack<T, Container>::rbegin(void) {
-  return this->c.begin();
+  return this->c.rbegin();
 };
 
 template <typename T, typename Container>
 typename MutantStack<T, Container>::reverse_iterator
 MutantStack<T, Container>::rend(void) {
-  return this->c.end();
+  return this->c.rend();
 };
 
 template <typename T, typename Container>
 typename MutantStack<T, Container>::const_reverse_iterator
 MutantStack<T, Container>::rbegin(void) const {
-  return this->c.begin();
+  return this->c.rbegin();
 };
 
 template <typename T, typename Container>
 typename MutantStack<T, Container>::const_reverse_iterator
 MutantStack<T, Container>::rend(void) const {
-  return this->c.end();
+  return this->c.rend();
 };

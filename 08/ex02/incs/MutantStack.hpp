@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 17:57:30 by mhotting          #+#    #+#             */
-/*   Updated: 2025/09/11 20:28:05 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/09/12 16:36:49 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,33 +17,30 @@
 #include <stack>
 
 template <typename T, typename Container = std::deque<T> >
-class MutantStack : public std::stack<T> {
+class MutantStack : public std::stack<T, Container>
+{
 public:
-  MutantStack(void);
-  MutantStack(const MutantStack &other);
-  ~MutantStack(void);
-  MutantStack<T> &operator=(const MutantStack &other);
+    MutantStack(void);
+    MutantStack(const MutantStack &other);
+    ~MutantStack(void);
+    MutantStack<T, Container> &operator=(const MutantStack &other);
 
-  typedef typename std::stack<T, Container>::container_type::iterator iterator;
-  typedef typename std::stack<T, Container>::container_type::const_iterator
-      const_iterator;
-  typedef typename std::stack<T, Container>::container_type::reverse_iterator
-      reverse_iterator;
-  typedef
-      typename std::stack<T, Container>::container_type::const_reverse_iterator
-          const_reverse_iterator;
+    typedef typename std::stack<T, Container>::container_type::iterator iterator;
+    typedef typename std::stack<T, Container>::container_type::const_iterator const_iterator;
+    typedef typename std::stack<T, Container>::container_type::reverse_iterator reverse_iterator;
+    typedef typename std::stack<T, Container>::container_type::const_reverse_iterator const_reverse_iterator;
 
-  iterator begin(void);
-  iterator end(void);
+    iterator begin(void);
+    iterator end(void);
 
-  const_iterator begin(void) const;
-  const_iterator end(void) const;
+    const_iterator begin(void) const;
+    const_iterator end(void) const;
 
-  reverse_iterator rbegin(void);
-  reverse_iterator rend(void);
+    reverse_iterator rbegin(void);
+    reverse_iterator rend(void);
 
-  const_reverse_iterator rbegin(void) const;
-  const_reverse_iterator rend(void) const;
+    const_reverse_iterator rbegin(void) const;
+    const_reverse_iterator rend(void) const;
 };
 
 #include "MutantStack.tpp"
