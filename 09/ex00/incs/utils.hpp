@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   utils.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/03 15:08:42 by mhotting          #+#    #+#             */
-/*   Updated: 2025/09/23 19:11:16 by mhotting         ###   ########.fr       */
+/*   Created: 2025/09/23 18:25:14 by mhotting          #+#    #+#             */
+/*   Updated: 2025/09/23 20:35:04 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp"
-#include "BitcoinHistory.hpp"
-#include "utils.hpp"
+#ifndef UTILS_HPP
+#define UTILS_HPP
 
-#include <iostream>
+#define HISTORY_FILENAME "./assets/dataTest.csv"
 
-int main(void) {
-    // Parsing the database
-    try {
-        BitcoinHistory hist(HISTORY_FILENAME);
-    } catch (const std::exception &e) {
-        std::cout << "Error : " << e.what() << std::endl;
-    }
+#include <string>
 
-    return 0;
-}
+void trimStr(std::string &s);
+
+#endif
