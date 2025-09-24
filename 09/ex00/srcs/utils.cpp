@@ -6,13 +6,15 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 20:09:12 by mhotting          #+#    #+#             */
-/*   Updated: 2025/09/24 14:49:57 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/09/24 18:41:04 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.hpp"
 
 #include <cctype>
+#include <cstdlib>
+#include <sstream>
 #include <stdexcept>
 
 void trimStr(std::string &s) {
@@ -46,7 +48,7 @@ bool isStringDateValid(const std::string &str) {
         return false;
     }
 
-    // Content validation
+    // Content structure validation
     for (size_t i = 0; i < str.length(); i++) {
         if (i == 4 || i == 7) {
             if (str[i] != '-')
@@ -59,18 +61,34 @@ bool isStringDateValid(const std::string &str) {
     }
 
     // Date validation
-    int year = std::atoi(str.substr(0, 4).c_str());
-    int month = std::atoi(str.substr(5, 2).c_str());
-    int day = std::atoi(str.substr(8, 2).c_str());
+    return isDateValid(std::atoi(str.substr(0, 4).c_str()), std::atoi(str.substr(5, 2).c_str()), std::atoi(str.substr(8, 2).c_str()));
+}
+
+bool isLeap(int year) {
+    return (year % 400 == 0) || (year % 4 == 0 && year % 100 != 0);
 }
 
 bool isDateValid(const int year, const int month, const int day) {
-    if (
-        year < 0 || year > 2025) {
+    if (year < 0 || month < 1 || month > 12 || day < 1 || day > 31) {
         return false;
     }
-    return true;
+    int daysInMonth[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    if (isLeap(year)) {
+        daysInMonth[FEB] = 29;
+    }
+    return day <= daysInMonth[month];
 }
 
 double stringToDouble(const std::string &str) {
+    std::istringstream iss(str);
+    double res;
+    char extra;
+
+    if (!(iss >> res)) {
+        throw std::runtime_error("Invalid number format " + str);
+    }
+    if (iss >> extra) {
+        throw std::runtime_error("Extra characters after number" + str);
+    }
+    return res;
 }

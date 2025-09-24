@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 15:08:42 by mhotting          #+#    #+#             */
-/*   Updated: 2025/09/23 19:11:16 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/09/24 18:47:41 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int main(void) {
     // Parsing the database
     try {
         BitcoinHistory hist(HISTORY_FILENAME);
+        std::cout << hist << std::endl;
     } catch (const std::exception &e) {
         std::cout << "Error : " << e.what() << std::endl;
     }
