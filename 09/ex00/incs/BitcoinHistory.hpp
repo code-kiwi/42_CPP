@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 18:16:56 by mhotting          #+#    #+#             */
-/*   Updated: 2025/09/24 18:43:13 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/10/12 00:39:42 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 class BitcoinHistory {
 public:
+    BitcoinHistory(void);
     BitcoinHistory(const std::string &filename);
     BitcoinHistory(const BitcoinHistory &other);
 
@@ -26,10 +27,10 @@ public:
     const BitcoinHistory &operator=(const BitcoinHistory &other);
 
     const std::map<std::string, double> &getContent(void) const;
+    void parseInputFile(const std::string &fileName);
 
 private:
     std::map<std::string, double> _content;
-    BitcoinHistory(void);
 };
 
 std::ostream &operator<<(std::ostream &o, const BitcoinHistory &bcHist);

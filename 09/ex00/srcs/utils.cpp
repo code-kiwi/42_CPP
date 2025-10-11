@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 20:09:12 by mhotting          #+#    #+#             */
-/*   Updated: 2025/09/24 18:41:04 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/10/12 00:31:27 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,15 @@ void trimStr(std::string &s) {
 void splitKeyValue(char sep, const std::string &str, std::string &key, std::string &value) {
     size_t index = str.find(sep);
     if (index == std::string::npos) {
-        throw std::runtime_error("History file contains an incorrect line (seperator missing)");
+        throw std::runtime_error("Seperator not found in " + str);
     }
     key = str.substr(0, index);
     trimStr(key);
     value = str.substr(index + 1);
     trimStr(value);
+    if (key.empty() || value.empty()) {
+        throw std::runtime_error("Empty key or value in " + str);
+    }
 }
 
 bool isStringDateValid(const std::string &str) {

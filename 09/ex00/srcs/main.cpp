@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 15:08:42 by mhotting          #+#    #+#             */
-/*   Updated: 2025/09/24 18:47:41 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/10/12 00:44:59 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,27 @@
 #include "utils.hpp"
 
 #include <iostream>
+#include <string>
 
-int main(void) {
-    // Parsing the database
+int main(int argc, char **argv) {
+    // Chekc argc
+    if (argc != 2) {
+        std::cout << "Usage: ./btc <input_file>" << std::endl;
+        return 1;
+    }
+
+    // Parse the database
+    BitcoinHistory hist;
     try {
-        BitcoinHistory hist(HISTORY_FILENAME);
-        std::cout << hist << std::endl;
+        hist.parseInputFile(HISTORY_FILENAME);
     } catch (const std::exception &e) {
         std::cout << "Error : " << e.what() << std::endl;
+        return 1;
     }
+
+    //
+    const std::string filename = argv[1];
+    std::cout << filename << std::endl;
 
     return 0;
 }
