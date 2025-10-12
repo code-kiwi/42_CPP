@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 22:52:08 by mhotting          #+#    #+#             */
-/*   Updated: 2025/10/12 15:48:26 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/10/12 17:25:21 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void BitcoinExchange::parseInputFile(const std::string &fileName, const BitcoinH
         throw std::runtime_error("Input file reading failed for first line");
     }
     trimStr(line);
-    if (line != "date | value") {
-        throw std::runtime_error("Input file's first line is incorrect");
+    if (!line.empty() && line != "date | value") {
+        std::cout << "Error: bad header line => " << line << std::endl;
     }
 
     // Loop through the given file lines
