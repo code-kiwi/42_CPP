@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 18:19:45 by mhotting          #+#    #+#             */
-/*   Updated: 2025/10/12 00:43:19 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/10/12 16:03:52 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,18 @@ void BitcoinHistory::parseInputFile(const std::string &fileName) {
         throw std::runtime_error("History file reading failed");
     }
     file.close();
+}
+
+double BitcoinHistory::getValueForDate(const std::string &date) const {
+    std::map<std::string, double>::const_iterator it = this->_content.lower_bound(date);
+    if (it != this->_content.end() && it->first == date) {
+        return it->second;
+    }
+    if (it == this->_content.begin()) {
+        throw std::runtime_error("No earlier data available for this date " + date + ".");
+    }
+    --it;
+    return it->second;
 }
 
 std::ostream &operator<<(std::ostream &o, const BitcoinHistory &bcHist) {
