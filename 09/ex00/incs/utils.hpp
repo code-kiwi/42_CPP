@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 18:25:14 by mhotting          #+#    #+#             */
-/*   Updated: 2025/10/12 14:54:30 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/10/12 16:20:56 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include <string>
 
-#define HISTORY_FILENAME "./assets/dataTest.csv"
+#define HISTORY_FILENAME "./assets/data.csv"
 #define EXPECTED_FIRST_LINE "date,exchange_rate"
 #define HISTORY_SEPARATOR ','
 
