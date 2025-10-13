@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 20:09:12 by mhotting          #+#    #+#             */
-/*   Updated: 2025/10/12 14:54:24 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/10/13 19:19:15 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,18 @@
 #include <stdexcept>
 
 void trimStr(std::string &s) {
-    if (s.length() == 0) {
+    if (s.empty()) {
         return;
     }
     size_t start = 0, end = s.length() - 1;
-    while (isspace(s[start])) {
+    while (start < s.length() && isspace(s[start])) {
         start++;
     }
-    while (isspace(s[end])) {
+    if (start == s.length()) {
+        s.clear();
+        return;
+    }
+    while (end > start && isspace(s[end])) {
         end--;
     }
     s = s.substr(start, end - start + 1);
@@ -91,7 +95,7 @@ double stringToDouble(const std::string &str) {
         throw std::runtime_error("Invalid number format " + str);
     }
     if (iss >> extra) {
-        throw std::runtime_error("Extra characters after number" + str);
+        throw std::runtime_error("Extra characters after number " + str);
     }
     return res;
 }
