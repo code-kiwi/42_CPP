@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 19:04:48 by mhotting          #+#    #+#             */
-/*   Updated: 2025/10/13 19:11:44 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/10/14 00:14:27 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 #define PARSER_HPP
 
 #include <string>
-#include <vector>
 
+template <typename Container>
 class Parser {
 public:
-    static void parseArg(std::vector<int> &numbers, int argc, char **argv);
-    static void parseArg(std::vector<int> &numbers, std::string args);
+    // Parsing to vector
+    static void parseArg(Container &numbers, int argc, char **argv);
+    static void parseArg(Container &numbers, std::string args);
 
 private:
     Parser(void);
@@ -30,6 +31,9 @@ private:
     static int stringToPositiveInt(const std::string &str);
     static void trimStr(std::string &s);
     static void trimLeftStr(std::string &s);
+    static void convertAndInsert(Container &numbers, const std::string &nbStr);
 };
+
+#include "Parser.tpp"
 
 #endif

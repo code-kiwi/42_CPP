@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Parser.cpp                                         :+:      :+:    :+:   */
+/*   Parser.tpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 19:10:47 by mhotting          #+#    #+#             */
-/*   Updated: 2025/10/13 19:18:22 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/10/14 01:00:48 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Parser.hpp"
-
 #include <algorithm>
+#include <cctype>
 #include <limits>
 #include <sstream>
 #include <stdexcept>
 
-int Parser::stringToPositiveInt(const std::string &str) {
+template <typename Container>
+int Parser<Container>::stringToPositiveInt(const std::string &str) {
     if (str.empty()) {
-        throw std::runtime_error("Empty string ton convert");
+        throw std::runtime_error("Empty string to convert");
     }
     std::istringstream iss(str);
     long res;
@@ -38,51 +38,61 @@ int Parser::stringToPositiveInt(const std::string &str) {
     return static_cast<int>(res);
 }
 
-void Parser::trimStr(std::string &s) {
+template <typename Container>
+void Parser<Container>::trimStr(std::string &s) {
     if (s.empty()) {
         return;
     }
     size_t start = 0, end = s.length() - 1;
-    while (start < s.length() && isspace(s[start])) {
+    while (start < s.length() && std::isspace(static_cast<unsigned char>(s[start]))) {
         start++;
     }
     if (start == s.length()) {
         s.clear();
         return;
     }
-    while (end > start && isspace(s[end])) {
+    while (end > start && std::isspace(static_cast<unsigned char>(s[end]))) {
         end--;
     }
     s = s.substr(start, end - start + 1);
 }
 
-void Parser::trimLeftStr(std::string &s) {
+template <typename Container>
+void Parser<Container>::trimLeftStr(std::string &s) {
     if (s.empty()) {
         return;
     }
     size_t start = 0;
-    while (start < s.length() && isspace(s[start])) {
+    while (start < s.length() && std::isspace(static_cast<unsigned char>(s[start]))) {
         start++;
     }
     s = s.substr(start);
 }
 
-void Parser::parseArg(std::vector<int> &numbers, int argc, char **argv) {
+template <typename Container>
+void Parser<Container>::convertAndInsert(Container &numbers, const std::string &nbStr) {
+    int nb = stringToPositiveInt(nbStr);
+    numbers.push_back(nb);
+}
+
+template <typename Container>
+void Parser<Container>::parseArg(Container &numbers, int argc, char **argv) {
     for (int i = 1; i < argc; i++) {
         std::string nbStr(argv[i]);
         trimStr(nbStr);
-
-        // Convert to int, validate and save
-        int nb = stringToPositiveInt(nbStr);
-        if (std::find(numbers.begin(), numbers.end(), nb) != numbers.end()) {
-            throw std::runtime_error("Duplicate element " + nbStr);
+        if (nbStr.empty()) {
+            throw std::runtime_error("Parser found an empty element");
         }
-        numbers.push_back(nb);
+        convertAndInsert(numbers, nbStr);
     }
 }
 
-void Parser::parseArg(std::vector<int> &numbers, std::string args) {
+template <typename Container>
+void Parser<Container>::parseArg(Container &numbers, std::string args) {
     trimStr(args);
+    if (args.empty()) {
+        throw std::runtime_error("Parser found an empty element");
+    }
     while (args.length() != 0) {
         std::string nbStr;
 
@@ -95,14 +105,7 @@ void Parser::parseArg(std::vector<int> &numbers, std::string args) {
             nbStr = args.substr(0, index);
             args = args.substr(index + 1);
         }
-
-        // Convert to int, validate and save
-        int nb = stringToPositiveInt(nbStr);
-        if (std::find(numbers.begin(), numbers.end(), nb) != numbers.end()) {
-            throw std::runtime_error("Duplicate element " + nbStr);
-        }
-        numbers.push_back(nb);
-
+        convertAndInsert(numbers, nbStr);
         trimLeftStr(args);
     }
 }
