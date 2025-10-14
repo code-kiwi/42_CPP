@@ -6,11 +6,12 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 15:08:42 by mhotting          #+#    #+#             */
-/*   Updated: 2025/10/14 01:05:56 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/10/14 14:49:43 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Parser.hpp"
+#include "PmergeMe.hpp"
 
 #include <ctime>
 #include <deque>
@@ -20,7 +21,8 @@
 #include <stdexcept>
 #include <vector>
 
-void printVector(const std::vector<int> &numbers) {
+template <typename T>
+void printContainer(T &numbers) {
     for (size_t i = 0; i < numbers.size(); i++) {
         std::cout << numbers[i];
         if (i != numbers.size() - 1) {
@@ -73,13 +75,7 @@ int main(int argc, char **argv) {
         std::cerr << "Error: " << e.what() << std::endl;
         return 1;
     }
-
-    // Print parsed argument
-    std::cout << "- numbersVect : ";
-    for (std::vector<int>::const_iterator i = numbersVect.begin(); i != numbersVect.end(); i++) {
-        std::cout << *i << " ";
-    }
-    std::cout << std::endl;
+    Sorter::MEsortVector(numbersVect, 1);
     clock_t endTimeVect = clock();
     double timeVect = static_cast<double>(endTimeVect - startTimeVect) / CLOCKS_PER_SEC;
 
@@ -98,13 +94,7 @@ int main(int argc, char **argv) {
         std::cerr << "Error: " << e.what() << std::endl;
         return 1;
     }
-
-    // Print parsed argument
-    std::cout << "- numbersDeque : ";
-    for (std::deque<int>::const_iterator i = numbersDeque.begin(); i != numbersDeque.end(); i++) {
-        std::cout << *i << " ";
-    }
-    std::cout << std::endl;
+    Sorter::MEsortDeque(numbersDeque, 1);
     clock_t endTimeDeque = clock();
     double timeDeque = static_cast<double>(endTimeDeque - startTimeDeque) / CLOCKS_PER_SEC;
 
@@ -112,11 +102,11 @@ int main(int argc, char **argv) {
     /* Final print */
     /* ******************** */
     std::cout << "Before: ";
-    printVector(initialNumbers);
+    printContainer<std::vector<int> >(initialNumbers);
     std::cout << std::endl;
 
     std::cout << "After: ";
-    printVector(numbersVect);
+    printContainer<std::vector<int> >(numbersVect);
     std::cout << std::endl;
 
     std::cout << "Time to process a range of " << numbersVect.size() << " elements with std::vector : " << std::fixed << std::setprecision(6) << timeVect << " s" << std::endl;
