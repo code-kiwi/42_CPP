@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 15:08:42 by mhotting          #+#    #+#             */
-/*   Updated: 2025/10/15 23:48:28 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/10/16 00:07:56 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int main(int argc, char **argv) {
     /* ******************** */
     /* Control of sort validity */
     /* ******************** */
-    if (!isSorted<std::vector<int> >(numbersVect) /*|| !isSorted<std::deque<int> >(numbersDeque)*/) {
+    if (!isSorted<std::vector<int> >(numbersVect) || !isSorted<std::deque<int> >(numbersDeque)) {
         std::cout << "Error: sorting process failed" << std::endl;
         return 1;
     }
