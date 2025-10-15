@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 15:08:42 by mhotting          #+#    #+#             */
-/*   Updated: 2025/10/14 14:49:43 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/10/15 23:48:28 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,15 @@ void printContainer(T &numbers) {
             std::cout << " ";
         }
     }
+}
+
+template <typename T>
+bool isSorted(T &v) {
+    for (size_t i = 1; i < v.size(); ++i) {
+        if (v[i] < v[i - 1])
+            return false;
+    }
+    return true;
 }
 
 int main(int argc, char **argv) {
@@ -75,7 +84,7 @@ int main(int argc, char **argv) {
         std::cerr << "Error: " << e.what() << std::endl;
         return 1;
     }
-    Sorter::MEsortVector(numbersVect, 1);
+    PmergeMe::sortVector(numbersVect, 1);
     clock_t endTimeVect = clock();
     double timeVect = static_cast<double>(endTimeVect - startTimeVect) / CLOCKS_PER_SEC;
 
@@ -94,9 +103,17 @@ int main(int argc, char **argv) {
         std::cerr << "Error: " << e.what() << std::endl;
         return 1;
     }
-    Sorter::MEsortDeque(numbersDeque, 1);
+    PmergeMe::sortDeque(numbersDeque, 1);
     clock_t endTimeDeque = clock();
     double timeDeque = static_cast<double>(endTimeDeque - startTimeDeque) / CLOCKS_PER_SEC;
+
+    /* ******************** */
+    /* Control of sort validity */
+    /* ******************** */
+    if (!isSorted<std::vector<int> >(numbersVect) /*|| !isSorted<std::deque<int> >(numbersDeque)*/) {
+        std::cout << "Error: sorting process failed" << std::endl;
+        return 1;
+    }
 
     /* ******************** */
     /* Final print */
