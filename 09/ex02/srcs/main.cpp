@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 15:08:42 by mhotting          #+#    #+#             */
-/*   Updated: 2025/10/16 00:07:56 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/10/16 10:51:07 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int main(int argc, char **argv) {
     }
     PmergeMe::sortVector(numbersVect, 1);
     clock_t endTimeVect = clock();
-    double timeVect = static_cast<double>(endTimeVect - startTimeVect) / CLOCKS_PER_SEC;
+    double timeVect = static_cast<double>(endTimeVect - startTimeVect) / CLOCKS_PER_SEC * 1000;
 
     /* ******************** */
     /* Deque */
@@ -105,7 +105,7 @@ int main(int argc, char **argv) {
     }
     PmergeMe::sortDeque(numbersDeque, 1);
     clock_t endTimeDeque = clock();
-    double timeDeque = static_cast<double>(endTimeDeque - startTimeDeque) / CLOCKS_PER_SEC;
+    double timeDeque = static_cast<double>(endTimeDeque - startTimeDeque) / CLOCKS_PER_SEC * 1000;
 
     /* ******************** */
     /* Control of sort validity */
@@ -126,8 +126,8 @@ int main(int argc, char **argv) {
     printContainer<std::vector<int> >(numbersVect);
     std::cout << std::endl;
 
-    std::cout << "Time to process a range of " << numbersVect.size() << " elements with std::vector : " << std::fixed << std::setprecision(6) << timeVect << " s" << std::endl;
-    std::cout << "Time to process a range of " << numbersDeque.size() << " elements with std::deque :  " << std::fixed << std::setprecision(6) << timeDeque << " s" << std::endl;
+    std::cout << "Time to process a range of " << numbersVect.size() << " elements with std::vector : " << std::fixed << std::setprecision(6) << timeVect << " ms" << std::endl;
+    std::cout << "Time to process a range of " << numbersDeque.size() << " elements with std::deque :  " << std::fixed << std::setprecision(6) << timeDeque << " ms" << std::endl;
 
     return 0;
 }

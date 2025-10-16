@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 20:09:12 by mhotting          #+#    #+#             */
-/*   Updated: 2025/10/13 19:19:15 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/10/16 11:22:52 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ bool isLeap(int year) {
 }
 
 bool isDateValid(const int year, const int month, const int day) {
-    if (year < 0 || month < 1 || month > 12 || day < 1 || day > 31) {
+    if (year < 0 || year > 2025 || month < 1 || month > 12 || day < 1 || day > 31) {
         return false;
     }
     int daysInMonth[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};

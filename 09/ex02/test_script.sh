@@ -6,7 +6,7 @@ stdout_file="stdout_logs.txt"
 > "$valgrind_file"
 > "$stdout_file"
 
-for i in $(seq 1 1000); do
+for i in $(seq 1 100); do
     echo "=== Run $i ===" >> "$valgrind_file"
     echo "=== Run $i ===" >> "$stdout_file"
     

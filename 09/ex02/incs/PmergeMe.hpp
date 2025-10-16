@@ -6,7 +6,7 @@
 /*   By: mhotting <mhotting@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 22:50:48 by mhotting          #+#    #+#             */
-/*   Updated: 2025/10/16 00:05:29 by mhotting         ###   ########.fr       */
+/*   Updated: 2025/10/16 10:49:06 by mhotting         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ private:
     ~PmergeMe(void);
     PmergeMe &operator=(const PmergeMe &);
 
-    typedef typename std::vector<int>::iterator IteratorV;
-    typedef typename std::vector<IteratorV>::iterator ItofIteratorV;
-    typedef typename std::deque<int>::iterator IteratorD;
-    typedef typename std::deque<IteratorD>::iterator ItofIteratorD;
+    typedef std::vector<int>::iterator IteratorV;
+    typedef std::vector<IteratorV>::iterator ItofIteratorV;
+    typedef std::deque<int>::iterator IteratorD;
+    typedef std::deque<IteratorD>::iterator ItofIteratorD;
 
     static void sortVectorBlockSwap(IteratorV start, IteratorV end, int blockSize);
     static void sortDequeBlockSwap(IteratorD start, IteratorD end, int blockSize);
